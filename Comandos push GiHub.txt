@@ -1,0 +1,3 @@
+git remote add origin https://github.com/Daniicecream/Proyecto-TALF.git //enlaza el repositorio a una direccion local
+
+git push -u origin master //envia el paquete al repositorio enlazado
