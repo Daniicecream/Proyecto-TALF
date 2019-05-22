@@ -1,19 +1,25 @@
+//DANIEL VASQUEZ R. INGENIERIA EN INFORMATICA UNIVERSIDAD TECNOLOGICA METROPOLITANA
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class main {
+
     public static void main(String[] args) throws IOException {
+
+        Regex r = new Regex();
+
         System.out.println("\t\tINSPECCIONADOR DE TEXTOS\n");
         System.out.println("Iniciando analisis de texto...\n");
         System.out.println("Luego de realizar el analisis, se obtuvo como resultado\nque las diez palabras mas repetidas son:\n");
 
             //Crear scanner
-            FileInputStream fin = new FileInputStream("contador.txt");
+            FileInputStream fin = new FileInputStream("contador8.txt");
             Scanner sc = new Scanner(fin);
 
-            //Crear Lista
+            //Crear Lista que almacenara las palabras
             ArrayList<String> palabras = new ArrayList<String>();
             ArrayList<Integer> contador = new ArrayList<Integer>();
 
@@ -24,18 +30,30 @@ public class main {
                 String sigpalabra =  sc.next();//Guarda lo que no sea un espacio en blanco
 
                 //Transforma la palabra a minusculas
-                sigpalabra = sigpalabra.toLowerCase();
+                sigpalabra = r.Minus(sigpalabra);
+
+                //Sustituir letras con tilde
+                sigpalabra = r.Tildes(sigpalabra);
+
+                //Eliminar puntuacion y simbolos
+                sigpalabra = r.Strip_symbolnum(sigpalabra);
 
                 //Filtrar palabra con REGEX'S
 
+
+                System.out.println("La cadena resultante es: " + sigpalabra + "\n"); //VERIFICADOR DE RESULTADO
+
                 //Verificar que la palabra no exista en la lista
-                if(palabras.contains(sigpalabra)){ //si el arreglo "palabras" contiene la palabra almacenada en "sigpalabra"
-                    int index = palabras.indexOf(sigpalabra); //encuentra la palabra
-                    contador.set(index, contador.get(index)+1); //le suma 1 al contador de dicha palabra
-                }
-                else{ //si la palabra almacenada en "sigpalabra" no existe en el arreglo "palabras"...
-                    palabras.add(sigpalabra); //se agrega al arreglo
-                    contador.add(1); //se cuenta como una vez
+                if(sigpalabra.isEmpty()){ } //Si el string obtenido esta vacio no hara nada "FILTRO DE CARACTERES VACIOS"
+                else{
+                    if(palabras.contains(sigpalabra)){ //si el arreglo "palabras" contiene la palabra almacenada en "sigpalabra"
+                        int index = palabras.indexOf(sigpalabra); //encuentra la palabra
+                        contador.set(index, contador.get(index)+1); //le suma 1 al contador de dicha palabra
+                    }
+                    else { //si la palabra almacenada en "sigpalabra" no existe en el arreglo "palabras"...
+                        palabras.add(sigpalabra); //se agrega al arreglo
+                        contador.add(1); //se cuenta como una vez
+                    }
                 }
         }
         //Cerrar texto y Scanner
