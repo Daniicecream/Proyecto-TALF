@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf2965f9-b75e-4f7e-96d5-b9739b3ad9e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contador.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejemplo.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/Archivos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contador8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/Filtros.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Porter/Regex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Porter/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Archivos.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Regex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Comandos push GiHub.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,33 +24,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Regex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="272">
+              <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1944#2581#1" />
+                <element signature="method#Tildes#0;class#Regex#0" />
+                <element signature="method#Minus#0;class#Regex#0" />
+                <element signature="method#Strip_symbolnum#0;class#Regex#0" />
+                <element signature="method#Pronombres#0;class#Regex#0" />
+                <element signature="method#Articulos#0;class#Regex#0" />
+                <element signature="method#Prefijos#0;class#Regex#0" />
+                <element signature="method#Sufijos#0;class#Regex#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contador8.txt">
+        <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Regex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+            <state relative-caret-position="1836">
+              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,6 +92,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,23 +102,12 @@
             </path>
             <path>
               <item name="Proyecto Porter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Codigo" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyecto Porter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Codigo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyecto Porter" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -181,7 +167,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2781155" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29179332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -190,7 +176,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37806875" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -253,48 +239,38 @@
     <entry file="file://$PROJECT_DIR$/text1.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/contador.txt">
+    <entry file="file://$PROJECT_DIR$/contador.txt" />
+    <entry file="file://$PROJECT_DIR$/src/Filtros.java" />
+    <entry file="file://$PROJECT_DIR$/ejemplo.txt" />
+    <entry file="file://$PROJECT_DIR$/contador8.txt" />
+    <entry file="file://$PROJECT_DIR$/tester.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contador8.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
+        <state relative-caret-position="-138" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1944#2581#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Filtros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="1836">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplo.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Regex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        <state relative-caret-position="272">
+          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+          <folding>
+            <element signature="method#Tildes#0;class#Regex#0" />
+            <element signature="method#Minus#0;class#Regex#0" />
+            <element signature="method#Strip_symbolnum#0;class#Regex#0" />
+            <element signature="method#Pronombres#0;class#Regex#0" />
+            <element signature="method#Articulos#0;class#Regex#0" />
+            <element signature="method#Prefijos#0;class#Regex#0" />
+            <element signature="method#Sufijos#0;class#Regex#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,0 +1,23 @@
+RESULTADOS DE PROYECTO PORTER:
+
+Analisis del documento...
+'que' se ha repetido 12 veces.
+'su' se ha repetido 12 veces.
+'y' se ha repetido 9 veces.
+'habia' se ha repetido 8 veces.
+'l' se ha repetido 8 veces.
+'cientifico' se ha repetido 6 veces.
+'por' se ha repetido 5 veces.
+'castillo' se ha repetido 4 veces.
+'vida' se ha repetido 4 veces.
+'n' se ha repetido 4 veces.
+'era' se ha repetido 4 veces.
+'frente' se ha repetido 4 veces.
+'no' se ha repetido 4 veces.
+'frankenstein' se ha repetido 3 veces.
+'pero' se ha repetido 3 veces.
+'gente' se ha repetido 3 veces.
+'frankie' se ha repetido 3 veces.
+'proyecto' se ha repetido 3 veces.
+'logro' se ha repetido 3 veces.
+'odian' se ha repetido 3 veces.
