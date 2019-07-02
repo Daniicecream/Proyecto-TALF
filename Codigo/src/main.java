@@ -17,7 +17,7 @@ public class main {
         System.out.println("Proceso ejecutado exitosamente!\nlos resultados fueron almacenados en el archivo\nDiccionario.txt el cual se encuentra en la carpeta del proyecto.");
 
             //Crear scanner
-            FileInputStream fin = new FileInputStream("text2.txt");
+            FileInputStream fin = new FileInputStream("text3.txt");
             Scanner sc = new Scanner(fin);
 
             //Crear Lista que almacenara las palabras
@@ -48,7 +48,7 @@ public class main {
                 //System.out.println("La cadena resultante es: " + sigpalabra + "\n"); //VERIFICADOR DE RESULTADO
 
                 //Verificar que la palabra no exista en la lista
-                if(sigpalabra.isEmpty()){ } //Si el string obtenido esta vacio no hara nada "FILTRO DE CARACTERES VACIOS"
+                if(sigpalabra.length()< 4){ } //Si el largo del string es < 4 no hara nada "FILTRO DE CARACTERES VACIOS" y palabras residuales
                 else{
                     if(palabras.contains(sigpalabra)){ //si el arreglo "palabras" contiene la palabra almacenada en "sigpalabra"
                         int index = palabras.indexOf(sigpalabra); //encuentra la palabra

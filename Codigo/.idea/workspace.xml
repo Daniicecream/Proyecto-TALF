@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cf2965f9-b75e-4f7e-96d5-b9739b3ad9e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contador8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/Filtros.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diccionario.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Diccionario.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Porter/Regex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Porter/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Porter/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Regex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comandos push GiHub.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tester.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text3.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,17 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Regex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-              <folding>
-                <element signature="method#Tildes#0;class#Regex#0" />
-                <element signature="method#Minus#0;class#Regex#0" />
-                <element signature="method#Strip_symbolnum#0;class#Regex#0" />
-                <element signature="method#Pronombres#0;class#Regex#0" />
-                <element signature="method#Articulos#0;class#Regex#0" />
-                <element signature="method#Prefijos#0;class#Regex#0" />
-                <element signature="method#Sufijos#0;class#Regex#0" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -45,11 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1836">
-              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -91,8 +79,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -108,6 +94,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -167,7 +155,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29179332" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3100304" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -250,27 +238,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Regex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding>
-            <element signature="method#Tildes#0;class#Regex#0" />
-            <element signature="method#Minus#0;class#Regex#0" />
-            <element signature="method#Strip_symbolnum#0;class#Regex#0" />
-            <element signature="method#Pronombres#0;class#Regex#0" />
-            <element signature="method#Articulos#0;class#Regex#0" />
-            <element signature="method#Prefijos#0;class#Regex#0" />
-            <element signature="method#Sufijos#0;class#Regex#0" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
         </state>
       </provider>
     </entry>

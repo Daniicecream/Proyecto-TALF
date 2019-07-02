@@ -38,7 +38,7 @@ public class Regex {
     }
 
     public String Articulos(String s){
-        s = s.replaceAll("^en$|^el$|^l[o|a](s)?$","");
+        s = s.replaceAll("\\b[en|el|l[o|a](s)?]\\b","");
         return s;
     }
 

@@ -1,23 +1,23 @@
 RESULTADOS DE PROYECTO PORTER:
 
 Analisis del documento...
-'que' se ha repetido 12 veces.
-'su' se ha repetido 12 veces.
-'y' se ha repetido 9 veces.
-'habia' se ha repetido 8 veces.
-'l' se ha repetido 8 veces.
-'cientifico' se ha repetido 6 veces.
-'por' se ha repetido 5 veces.
-'castillo' se ha repetido 4 veces.
-'vida' se ha repetido 4 veces.
-'n' se ha repetido 4 veces.
-'era' se ha repetido 4 veces.
-'frente' se ha repetido 4 veces.
-'no' se ha repetido 4 veces.
-'frankenstein' se ha repetido 3 veces.
-'pero' se ha repetido 3 veces.
-'gente' se ha repetido 3 veces.
-'frankie' se ha repetido 3 veces.
-'proyecto' se ha repetido 3 veces.
-'logro' se ha repetido 3 veces.
-'odian' se ha repetido 3 veces.
+'presley' se ha repetido 315 veces.
+'como' se ha repetido 150 veces.
+'elvis' se ha repetido 95 veces.
+'cant' se ha repetido 79 veces.
+'habia' se ha repetido 59 veces.
+'musica' se ha repetido 53 veces.
+'años' se ha repetido 50 veces.
+'despues' se ha repetido 46 veces.
+'rock' se ha repetido 46 veces.
+'memphis' se ha repetido 41 veces.
+'cuando' se ha repetido 37 veces.
+'parker' se ha repetido 37 veces.
+'desde' se ha repetido 34 veces.
+'canciones' se ha repetido 30 veces.
+'album' se ha repetido 30 veces.
+'roll' se ha repetido 28 veces.
+'country' se ha repetido 27 veces.
+'estilo' se ha repetido 26 veces.
+'donde' se ha repetido 26 veces.
+'blues' se ha repetido 26 veces.
