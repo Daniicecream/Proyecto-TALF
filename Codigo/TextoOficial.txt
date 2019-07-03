@@ -1,0 +1,1207 @@
+﻿ 
+
+
+SIMULACIÓN DE INCENDIOS FORESTALES MEDIANTE LA TEORÍA DE AUTÓMATAS UNICELULARES
+
+
+TRABAJO DE TITULACIÓN PARA OPTAR AL TÍTULO DE INGENIERO EN INFORMÁTICA
+
+
+
+PROFESOR GUÍA:		VÍCTOR HUGHES ESCOBAR JERIA
+ALUMNO: 		            CRISTÓBAL IGNACIO SALDÍAS ROJAS
+
+
+
+SANTIAGO - CHILE
+2019
+ 
+NOTA OBTENIDA:
+ 
+Contenido
+Capítulo 1: ANTECEDENTES GENERALES	1
+1.1 Nombre del Tema	1
+1.2 Resumen	1
+1.4 Descripción del Proyecto de Título	2
+1.5 Objetivos	3
+1.5.1 Objetivos Generales	3
+1.5.2 Objetivos Específicos	3
+1.6 Alcances y Limitaciones	4
+1.6.1 Alcances	4
+1.6.2 Limitaciones	4
+1.7 Metodología	4
+1.7.1 Etapa 1: Definición del Tema	5
+1.7.2 Etapa 2: Teoría y Formulación del Problema	5
+1.7.3 Etapa 3: Algoritmo de Simulación	5
+1.7.4 Etapa 4: Datos obtenidos	6
+1.8 Recursos	6
+1.8.1 Hardware	6
+1.8.2 Software	6
+1.8.3 Humano	7
+1.9 Cronograma	7
+Capítulo 2: ESTADO DEL ARTE	8
+2.1 Análisis Bibliométrico y Altmetrics	8
+2.1.1 Introducción	8
+2.1.2 Términos de Búsqueda	8
+2.1.3 Estudio Bibliométrico	10
+2.1.4 Estudio Altmetrics	12
+2.1.5 Conclusiones del estudio Bibliométrico y Altmetrics	24
+2.2 Marco teórico	26
+2.2.1 Introducción	26
+2.2.2 Artículos seleccionados	27
+2.2.3 Teoría de Grafos [1]	29
+2.2.4 La Teoría de Autómatas [2]	34
+2.2.5 Autómatas Celulares [3]	45
+2.2.6 Incendios Forestales	52
+2.3 Propuesta de proyecto	61
+2.3.1 Variables involucradas	61
+2.3.2 Elementos del Autómata Celular	63
+2.3.3 Resultado esperado	64
+2.3.4 Justificación del Proyecto	64
+2.3.5 Conclusión de Justificación	66
+Anexos	68
+Anexo 1: Cronograma completo de plan de Hitos de Título 1	68
+Anexo 2: Cronograma completo de plan de Hitos de Título 2	69
+Anexo 3: Curva de Horas Hombre Acumulada Estimada	71
+Anexo 4: Curva de Porcentaje de Avance del Proyecto Estimada	72
+Anexo 5: Bases de Datos	72
+Anexo 6: Propiedades de las expresiones regulares	74
+Anexo 7: Resumen de las ecuaciones básicas del modelo de rothermel	75
+Anexo 8: Gráfico del número de incendios en Chile	76
+Anexo 9: Gráfico de las hectáreas quemadas por incendios en Chile	77
+Anexo 10: Número de Explotaciones por Región	77
+Anexo 11: Superficie Agrícola por Región	78
+Anexo 12: Direcciones e Intensidades del Viento	78
+Referencias Bibliográficas	80
+Bibliografía	80
+Webgrafía	80
+
+
+
+
+ 
+Índice de Ilustraciones
+ 1.1: Tiempo de ignición en segundos de los árboles más comunes en Chile.	3
+ 1.2: implementación matricial de un árbol (punto gris) considerando las condiciones de viento.	3
+ 1.3: Estimación de Horas Hombre acumuladas versus el plan de hitos	8
+ 1.4: Estimación de porcentaje acumulado versus el plan de hitos	9
+ 2.1: Volumen de datos por cada base de datos	9
+ 2.2: Porcentaje de datos por cada palabra clave	10
+ 2.3: Número de publicaciones por año de cada base de datos	11
+ 2.4: Número de publicaciones por año de cada palabra clave	12
+ 2.5: H-Index y G-Index para los autores relacionados con "Forestal Fire"	13
+ 2.6: Trascendencia de Cerdà, A. en el periodo de 2010 a 2019	14
+ 2.7: Trascendencia de Brotons. Lluís L. en el período de 2010 a 2019	14
+ 2.8: Indicador H-Index y G-Index para los autores relacionados con la palabra clave “Cellular Automata”	15
+ 2.9: Trascendencia de Li, Xia entre los años de 2010 y 2019	16
+ 2.10: Trascendencia de Chopard, Bastien entre los años de 2010 y 2019	16
+ 2.11: Indicador h-index y g-index para los autores relacionados con Simulation y Automata Theory	17
+ 2.12: Trascendencia Meybodi, Mohammad Reza entre los años 2010 y 2019	18
+ 2.13: Trascendencia de Oommen, B. John entre los años de 2010 y 2019	18
+ 2.14: Indicador h-index y g-index para los autores relacionados con Simulation y Cellular Automata	19
+ 2.15: Trascendencia de Liu, Xiaoping entre los años de 2010 y 2019	20
+ 2.16: Indicador h-index y g-index para los autores relacionados con Wildfire y Cellular Automata	21
+ 2.17: Trascendencia de Di Gregorio, Salvatore desde el año 2010 hasta 2019	21
+ 2.18: Trascendencia de Spataro, William desde el año 2010 hasta 2019	22
+ 2.19: Indicador h-index y g-index para los autores relacionados con Wildfire y Simulation	22
+ 2.20: Trascendencia de Trunfio, Giuseppe A. desde el año 2010 hasta 2019	23
+ 2. 21: Trascendencia de Ntaimo, Lewis desde el año 2010 hasta 2019	23
+ 2.22: Métrica por autores	24
+ 2.23: SJF de cada publicación	28
+ 2.24: h-index de cada publicación más visitada	28
+ 2.25: 7 puentes de Königsberg	29
+ 2.26: Ejemplo de un Grafo	29
+ 2.27: Ejemplo de Multigrafo	30
+ 2.28: Ejemplo de un Digrafo	30
+ 2.29: Ejemplo de grafo n-cubo de n=2	31
+ 2.30: a) Grafo con peso. b) Digrafo con peso	31
+ 2.31: Grafo rotulado	32
+ 2.32: Matriz de Adyacencia del grafo de la  2.31	33
+ 2.33: Ejemplo de Autómata Finito Determinístico	35
+ 2.34: Matriz de Transiciones	36
+ 2.35: Ejemplo de Autómata Finito no Determinístico	36
+ 2.36: Matriz de Transiciones de la  3.10	37
+ 2.37: Matriz de Transiciones resultante	37
+ 2.38: AFD de la  3.10	37
+ 2.39: Equivalencia entre los Autómatas Finitos y la Expresión Regular	39
+ 2.40: Autómata Finito de ejemplo para obtener la ER	40
+ 2.41: Matriz 'R' de Expresión Regular	41
+ 2.42: Autómata a minimizar	42
+ 2.43: Matriz de transiciones del Autómata de la  2.18	42
+ 2.44: Autómata de la  2.18 minimizado	44
+ 2.45: Autómatas celulares de la Regla del 110, Regla del 30, Regla del 150 y Regla del 76	47
+ 2.46: Resultado aleatorio de la Regla del 76	48
+ 2.47: Resultado de la Regla del 76	49
+ 2.48: Doble superposición de vecindad	50
+ 2.49:  2.24 re etiquetada	50
+ 2.50: Autómata minimizado	51
+ 2.51: AFD resultante de la primera evolución del lenguaje	51
+ 2.52: AFD minimal de la Regla del 76	52
+ 2.53: Sistema de Fons	56
+ 2.54: Representación del sistema del modelo de Pagni y Peterson	59
+ 2.55: Representación del sistema del modelo de Albini	60
+ 2.56: Definición de la variable "Suelo"	61
+ 2.57: Definición de la variable "Corteza"	62
+ 2.58: Definición de la variable "Intensidad de Viento"	62
+ 2.59: Dirección e Intensidad del Viento	63
+ 2.60: Vecindad básica para el AC	63
+ 2.61: Propagación del incendio	64
+
+ A.1: Número de incendios forestales por región en Chile	77
+ A.2: Hectáreas quemadas por incendios en Chile	77
+ A.3: Número de explotaciones por región	78
+ A.4: Superficie agrícola por región	78
+ A.5: Viento de intensidad 1	79
+ A.6: Viento de intensidad 2	79
+ 
+ 
+Índice de
+ 1.1:  de avance de los Hitos del proyecto	7
+ 2.1: Bases de datos y respectivas direcciones URL	10
+ 2.2: Resultados de búsqueda de datos	11
+ 2.3: Autores(as) con número de publicaciones "Forestal Fire"	15
+ 2.4: Autores(as) con número de publicaciones "Celullar Automata"	17
+ 2.5: Autores(as) con número de publicaciones "Simulation" y "Automata Theory"	19
+ 2.6: Autores(as) con número de publicaciones "Simulation" y "Cellular Automata"	21
+ 2.7: Autores(as) con número de publicaciones "Wildfire" y "Cellular Automata"	22
+ 2.8: Autores(as) con número de publicaciones "Wildfire" y "Simulation"	24
+ 2.9: Publicaciones más visitadas	28
+ 2.10: Cuartiles asociados a las publicaciones	29
+ 2.11: Resumen de las características de los tipos de grafos	33
+ 2.12:  para minimización de un Autómata	45
+ 2.13: Primera  de Algoritmo de Minimización	45
+ 2.14:  de minimización resultante del Autómata	46
+ 2.15:  de función de Transición para la Regla del 76	50
+ 2.16: Clasificación general de los incendios forestales	58
+ 2.17:  del número de incendios forestales a la fecha y del número de hectáreas consumidas por éstos	67
+ 2.18: Número de explotaciones y superficie según región	68
+ 2.19: Porcentaje de participación del sector Silvoagropecuario en el PIB nacional	68 
+ A.1: Resumen de las ecuaciones del Modelo de Rothermel	76
+
+ 
+Índice de ecuaciones
+(Ec. 2.1)	31
+(Ec. 2.2)	32
+(Ec. 2.3)	34
+(Ec. 2.4)	40
+(Ec. 2.5)	42
+(Ec. 2.6)	47
+(Ec. 2.7)	48
+(Ec. 2.8)	48
+(Ec. 2.9)	51
+(Ec. 2.10)	59
+(Ec. 2.11)	59
+(Ec. 2.12)	59
+(Ec. 2.13)	59
+(Ec. 2.14)	60
+(Ec A.1)	75
+(Ec A.2)	76
+(Ec A.3)	76
+(Ec A.4)	76
+(Ec A.5)	76
+(Ec A.6)	76
+(Ec A.7)	76
+(Ec A.8)	76
+(Ec A.9)	76
+(Ec A.10)	76
+(Ec A.11)	76
+(Ec A.12)	76
+(Ec A.13)	76
+(Ec A.14)	76
+(Ec A.15)	76
+(Ec A.16)	76
+(Ec A.17)	76
+(Ec A.18)	76
+(Ec A.19)	76
+
+  
+Capítulo 1: ANTECEDENTES GENERALES
+1.1 Nombre del Tema
+Simulación de Incendios Forestales usando la Teoría de Autómatas Unicelulares.
+Básicamente el nombre del proyecto se asocia con el fundamento que le da el sustento en su aplicación directa: la Teoría de Autómatas, la cual se entiende como:
+ “... el estudio de dispositivos de cálculo abstractos, es decir, de las ‘máquinas’.” [1, p. 1] .
+Puntualmente para efecto de la simulación de un incendio forestal se aplicarán los autómatas celulares, los cuales resultan ser profundamente útiles a la hora de estudiar componentes que están en constante cambio. 
+Los autómatas celulares se enraízan a la Teoría de la Computación aplicado a Sistemas Dinámicos Discretos sobre Reticulados . En estricto rigor, los autómatas celulares son modelos matemáticos capaces de crear nuevos autómatas, los cuales a su vez pueden generar otros. Esto justamente permite procesar prácticamente cualquier información que sea variable en el momento o instante en que se vaya a aplicar la función matemática asociada. Este contexto resulta ideal y fundamental al simular la propagación del fuego en un incendio forestal, ya que se  enfrenta a un cambio constante del camino que pueda llegar a seguir el fuego, que es totalmente variable en función del tipo de suelo (si es altamente inflamable o no), el tipo de corteza del árbol y de si existe corriente de viento y en qué dirección.
+1.2 Resumen
+Esta propuesta de trabajo de titulación plantea la forma, recursos y plan de trabajo que se emplearán a lo largo del proceso de desarrollo del proyecto propuesto.
+El proyecto está pensado para observar la propagación de un incendio forestal en una región del espacio definida por un simulador de acuerdo a ciertas variables. Para lograr lo anterior se implementará el desarrollo de un modelo basado en Autómatas Celulares con el fin de tener una visión de la propagación del incendio.
+La modalidad de este proyecto de título se encuentra enmarcada en el ámbito de la investigación aplicada, ya que se caracteriza por ser sistemático el contexto que se analizará. La modalidad de investigación contendrá los siguientes pasos: definición del tema, delimitación del mismo, formulación del problema, reducción del problema a un nivel empírico, recolección de datos mediante simulaciones y finalmente el análisis de datos obtenidos.
+La definición del tema engloba todo el proyecto de la forma más representativa posible, se justificará en este punto la elección y el nombre del tema. La delimitación del tema serán las aristas que éste tendrá, en otras palabras, lo que se abordará y lo que se dejará fuera de la investigación. Esta será en base a la definición de las limitaciones y alcances que se definirán más adelante con mayor detalle. 
+Para la formulación del problema, se tomarán los objetivos que se detallarán más adelante, posteriormente se procederá a definir las variables y a expresar los objetivos en función de las variables. Dentro de la misma formulación, se darán a conocer indicios del marco teórico básico con el fin de tener una noción para el planteamiento de la hipótesis. También se va a incluir la definición de las variables que estarán implicadas a lo largo del proyecto, que posteriormente se emplearán para construir el Autómata Celular. Para dichas variables se verá que cumplan con los principios y factores de categorización necesarios. Se clasificará a las variables de acuerdo a su naturaleza y la función en la hipótesis. Una vez realizada esta fase, se procederá al planteamiento de la(s) función(es) que involucran a cada una de las variables. Con esto ya se podría obtener un acercamiento a un modelo más empírico, que se iniciará mediante la construcción del algoritmo de simulación y se va a concretar con la implementación de dicho algoritmo en un simulador. Finalmente, se recolectarán los datos mediante la construcción de índices a partir de los resultados que vayan arrojando las diferentes simulaciones, dichos índices se entienden como una reconstrucción compleja de una variable. Con esto se podrá realizar el posterior análisis de los datos obtenidos y verificar si la hipótesis planteada en un inicio es factible o no.
+1.4 Descripción del Proyecto de Título
+El proyecto consiste en la implementación de un algoritmo que mediante una matriz, la cual va a corresponder a una superficie o terreno, simula un incendio forestal en dicho terreno. Cada casilla de la matriz va a corresponder a un punto dentro del terreno, a esta casilla se le denominará bajo el nombre de célula. Cada célula va a tener sus propiedades específicas, que ayudarán a determinar la propagación en tiempo real del incendio forestal que se vaya a simular. Dichas propiedades son:
+	Tipo de suelo: si no es inflamable o si es bajo o altamente inflamable, por ejemplo agua o pasto seco.
+	Tipo de corteza de árbol: si no está presente o si lo está en dicho punto, en este último caso hay que tener en cuenta si es media o altamente inflamable, por ejemplo:
+
+ 
+ 1.1: Tiempo de ignición en segundos de los árboles más comunes en Chile.
+Fuente: https://www.emol.com/noticias/Nacional/2017/02/01/842775/Estudio-revela-cuales-son-los-arboles-que-se-incendian-mas-rapido-en-Chile.html
+Por ejemplo, el árbol avellano se demora casi 14 segundos en prender, mientras que el maqui le toma menos de la mitad del mismo tiempo.
+	Tipo de viento: si existe o no, en caso de existir la dirección que éste posea (norte, sur, este u oeste por mencionar algunos) y la intensidad (leve o fuerte).
+ 
+ 1.2: implementación matricial de un árbol (punto gris) considerando las condiciones de viento.
+Explicación: de acuerdo a su intensidad toma los 0, 1 o 2 y puede ir en cualquier dirección de los puntos cardinales. 1.a) muestra un viento con intensidad de 2 unidades que va en dirección Sureste. 1.b) muestra un viento con intensidad de 2 unidades que va en dirección Noreste. 1.c) muestra un viento con intensidad de 2 unidades con dirección Oeste.
+Fuente: Elaboración Propia.
+Todas estas variables irán determinando la dirección de propagación del incendio a partir del punto en que se desee iniciarlo.
+1.5 Objetivos
+1.5.1 Objetivos Generales
+Desarrollar una aplicación que sirva como herramienta para simular la propagación de un incendio forestal aplicando la teoría de autómatas en el ámbito unicelular.
+1.5.2 Objetivos Específicos
+	Realizar un estudio estadístico de los Incendios Forestales en Chile que demuestran la necesidad del desarrollo de este proyecto.
+	Efectuar un correcto análisis bibliométrico de las fuentes preliminares que se posean.
+	Analizar la matemática que da sustento a la Teoría de Autómatas Celulares planteada por Stephen Wolfram.
+	Analizar el marco teórico obtenido.
+	Definir conceptualmente los elementos asociados al reticulado o alfabeto a emplear en el autómata, el espacio de configuraciones, la vecindad finita, las funciones más relevantes y la función bloque.
+	Desplegar un algoritmo que simule la propagación de un incendio forestal.
+	Determinar el costo y orden del algoritmo desplegado.
+	Construir una aplicación que realice dicha simulación.
+	Recolectar los datos mediante el simulador; para posteriormente analizar los resultados obtenidos.
+1.6 Alcances y Limitaciones
+1.6.1 Alcances
+El sistema contempla las siguientes acciones:
+	Permitir la definición de manera previa a la simulación las variables asociadas.
+	Permitir el ingreso de cada célula con sus respectivas componentes (tipo de suelo o tipo de corteza de árbol) de manera manual o dejar que se genere una región de manera aleatoria.
+	Mostrar la propagación del incendio forestal mediante la aplicación que se va a desarrollar. 
+1.6.2 Limitaciones
+El sistema no contempla los siguientes elementos:
+	Poder almacenar una superficie.
+	Obtener una respuesta o simulación inmediata debido al tiempo en ejecución que podría llegar a tomar.
+	Detener la simulación una vez iniciada.
+	La región no podrá exceder la dimensión de más de 100×100 células.
+	Predecir el comportamiento real de un incendio.
+1.7 Metodología
+La metodología se compone de seis elementos: tema, delimitación del tema, formulación del problema, reducción del problema a un nivel empírico, recolección de datos y el análisis de los mismos. A continuación se procederá a definir las fases del trabajo a realizar.
+1.7.1 Etapa 1: Definición del Tema
+1.7.1.1 Fase 1: El proyecto
+Se comenzará explicando la razón del nombre del tema aludiendo a ciertos conceptos que se necesitan tener en consideración para entender el marco teórico posterior. Después se darán las razones de por qué se realizará este trabajo, citando diferentes estadígrafos facilitados por instituciones como CONAF o el Ministerio de Agricultura.
+1.7.1.2 Fase 2: Alcances y Limitaciones
+Se recordarán los objetivos aludidos en el Capítulo 1, tanto el general como los específicos. Después se ahondará más en los Alcances y Limitaciones del proyecto, se darán los argumentos de por qué se dejarán ciertos conceptos fuera de estudio del trabajo a realizar.
+1.7.2 Etapa 2: Teoría y Formulación del Problema
+1.7.2.1 Fase 1: Análisis Bibliométrico
+En este subcapítulo, se va a filtrar el universo de fuentes de información y datos disponibles. Se van a mencionar los principales autores del tema más general, que será la Teoría de Autómatas y después se irán acotando hacia el tema de los Autómatas Celulares, recurriendo a ciertos conocimientos del Álgebra Lineal que son necesarios.
+1.7.2.2 Fase 2: Marco Teórico
+Una vez filtrados los datos en la Fase 1: Análisis Bibliométrico, se va a proceder a redactar el Marco Teórico, que dará sustento al trabajo que se va a realizar, es decir, desarrollar una aplicación que sirva como herramienta para la simulación de un Incendio Forestal en una región determinada.
+1.7.2.3 Fase 3: Hipótesis y Variables
+Una vez expuesto el fundamento teórico adecuado para la comprensión de lo que se va a realizar, se procederá a formular una hipótesis y las variables asociadas a ésta. Dichas variables se definirán conceptual y matemáticamente, además jugarán un rol fundamental en la implementación del algoritmo que realizará la simulación.
+1.7.3 Etapa 3: Algoritmo de Simulación
+1.7.3.1 Fase 1: Construcción del Algoritmo
+En esta fase, se construirá el algoritmo en función de las variables definidas en la Fase 3: Hipótesis y Variables de la Etapa 2: Teoría y Formulación del problema. Dicho algoritmo será redactado de manera genérica, definiéndose las estructuras de datos necesarias para los elementos requeridos para realizar la simulación.
+1.7.3.2 Fase 2: Análisis del Algoritmo
+Una vez creado el algoritmo, se procederá a obtener el costo y posteriormente el orden del mismo, con el objetivo de poder delimitar si es demasiado costoso para un ordenador tradicional o no lo es.
+1.7.3.3 Fase 3: Desarrollo de la aplicación
+Una vez analizado el algoritmo, se procederá a desarrollar la aplicación en algún lenguaje de programación. Idealmente se desarrollará con una simple interfaz gráfica para observar la propagación del incendio. 
+1.7.4 Etapa 4: Datos obtenidos
+1.7.4.1 Fase 1: Recolección de datos
+Con el desarrollo de la aplicación en un lenguaje de programación, se realizarán varias simulaciones con el fin de recolectar varios datos de éstas. Dichos datos se irán almacenando para su uso posterior.
+1.7.4.2 Fase 2: Análisis de los datos
+Una vez realizadas varias simulaciones, se obtendrá una muestra de datos que se procederán a analizar estadísticamente. Dichos datos serían: el tiempo de ejecución o la forma en que se propagó el incendio de acuerdo a las variables definidas por mencionar algunos.
+1.7.4.3 Fase 3: Análisis de resultados
+Esta vendría siendo la fase final del trabajo en la cual se va a probar, con los resultados obtenidos de la Fase 2: Análisis de los datos, si la hipótesis se cumple o no.
+1.8 Recursos
+Para realizar este trabajo de título será necesario contar con recursos de Hardware, Software y Humano. A continuación se mencionan de manera general cada uno de éstos:
+1.8.1 Hardware
+Consiste en un ordenador, ya sea portátil o de escritorio.  
+1.8.2 Software
+Se piensa usar el lenguaje de programación Java o Python, por lo cual se preferirá el ordenador mencionado previamente, posea un Sistema Operativo basado en un kernel Linux como Ubuntu por ejemplo, ya que éste Sistema Operativo está plenamente optimizado para los desarrollos en dichos lenguajes de programación. De ser Java se trabajará con el IDE Netbeans, en caso contrario se trabajará con un editor de texto ligero como Sublime text u Atom. 
+1.8.3 Humano
+Básicamente corresponderá al estudiante que se encuentre cursando los ramos relacionados titulación. 
+1.9 Cronograma
+El cronograma de actividades se ha desarrollado de acuerdo al Plan de Hitos facilitado por Reko, de acuerdo a éste el inicio de actividades académicas se localiza en la semana del 18 de Marzo de 2019.
+A continuación se muestra el cronograma de actividades generales de actividades:
+Hito	%acum	HHacum
+Anteproyecto	16%	76
+Fase 1.1: El Proyecto	19%	84
+Fase 1.2: Alcances y Limitaciones	27%	113
+Fase 2.1: Análisis Bibliométrico	31%	136
+Fase 2.2: Marco Teórico	36%	161
+Fase 2.3: Hipótesis y Variables	38%	177
+Finalización del proceso de Título 1	46%	213
+Fase 3.1: Construcción del Algoritmo	57%	244
+Presentación Título 1	57%	244
+Fase 3.2: Análisis del Algoritmo	61%	282
+Fase 3.3: Desarrollo de la Aplicación	71%	333
+Fase 4.1: Recolección de Datos	76%	358
+Fase 4.2: Análisis de Datos	81%	371
+Fase 4.3: Análisis de los Resultados	86%	385
+Preparación de presentación	92%	426
+Parte introductoria de la presentación del proyecto	96%	454
+Parte del desarrollo de la presentación del proyecto	99%	478
+Conclusiones del proyecto	100%	487
+ 1.1:  de avance de los Hitos del proyecto
+Fuente: Elaboración Propia
+Este cronograma simplificado, muestra los hitos más relevantes, con las respectivos porcentajes de avance y horas hombre acumuladas que demanda cada uno. 
+A partir de este cronograma, se pueden obtener las respectivas Curvas S que proyectan las horas hombres y porcentaje acumulado versus el hito deseado. Dichas curvas se adjuntan en el Anexo 3: Curva de Horas Hombre Acumulada Estimada y Anexo 4: Curva de Porcentaje de Avance del Proyecto Estimada respectivamente.
+
+Capítulo 2: ESTADO DEL ARTE
+2.1 Análisis Bibliométrico y Altmetrics
+2.1.1 Introducción
+Para obtener información referente a la investigación a realizar, se tomará como apoyo un grupo de 11 bases de datos de gran importancia a nivel global, las cuales son:
+N°	Página	URL
+1	Scopus	https://www.scopus.com/home.uri
+2	IOPscience	https://iopscience.iop.org/
+3	Springer	https://www.springer.com/
+4	Science Direct	https://www.sciencedirect.com/
+5	Wiley Online Library	https://onlinelibrary.wiley.com/
+6	ACM digital library	https://dl.acm.org/
+7	Emerald Insight	https://www.emeraldinsight.com/
+8	Scielo	https://www.scielo.org/en
+9	DBPL Computer Science Bibliography	https://dblp.uni-trier.de/
+10	World Cat	https://www.worldcat.org/
+11	World Wide Science	https://worldwidescience.org/
+ 2.1: Bases de datos y respectivas direcciones URL
+Fuente: Elaboración propia
+2.1.2 Términos de Búsqueda
+Para el análisis de la presencia en las bases de datos previamente mencionadas se tomarán las siguientes palabras claves (con sus respectivas traducciones a la lengua inglesa):
+	Incendio Forestal
+	Autómata Celular
+Traducción al inglés respectivamente:
+	Forestal Fire
+	Cellular Automata
+Para efecto de la obtención del volumen de datos, se trabajará exclusivamente con las palabras en inglés. El rango de fecha para la recolección de los datos será desde Enero de 2015 hasta Abril de 2019. 
+Puntualmente para la palabra clave Cellular Automata, se considerarán las que estén relacionadas únicamente con el área de las Ciencias de la Computación y para Forestal Fire, se limitará a publicaciones relacionadas con el área de la Ingeniería.
+Para la evaluación de datos más riguroso en el tópico de Simulation, cuando se elija la Base de Datos pertinente, se procederá a mezclarlo con los otros conceptos para obtener documentos más precisos.
+Términos	Forestal Fire	Cellular Automata	Total
+Scopus	23	3.833	3.856
+IOPscience	2	119	121
+Springer	0	259	259
+ScienceDirect	1.125	210	1.335
+Wiley Online Library	1	81	82
+ACM digital library	1.055	1.542	2.597
+Emerald Insight	0	7	7
+Scielo	27	19	46
+DBPL Computer Science Bibliography	0	961	961
+World Cat	98	135	233
+World Wide Science	402	399	801
+Total	2.733	7.565	10.298
+ 2.2: Resultados de búsqueda de datos
+Fuente: Elaboración propia
+
+A partir de la  se puede observar que el número de publicaciones que abarcan las palabras claves mencionadas previamente, comprenden un volumen total de 10.298 publicaciones en lo que va del año 2015 a 2019.
+A partir de la  2.1, que resulta de los datos recolectados en la  2.2, se puede observar claramente que el mayor volumen de información se encuentra alojado en la base de datos Scopus con poco más del 37% del volumen de datos encontrados. Le sigue ACM Digital Library con poco más de un 25% del volumen de datos encontrados.
+Para la búsqueda realizada en Scopus en relación con el concepto de Autómatas Celulares, se filtró bajo lo relacionado con Ciencias de la Computación. Esto contrasta en gran medida con el volumen de datos encontrados por ejemplo en las bases de datos de IOPscience, Emerald Insight o Springer por mencionar algunas, donde cada una no supera ni el 3% del total de datos encontrados.
+2.1.3 Estudio Bibliométrico
+El enfoque bibliométrico lleva aparejado el uso y aplicación de métodos cuantitativos, como indicadores o modelos matemáticos a la literatura científica indagada, con el fin de obtener datos que permitan aportar conocimiento en relación a la evaluación de una determinada producción científica y conocer igualmente su calidad. En este estudio se contabilizaron publicaciones científicas, periódicos, libros y revistas por mencionar algunos, para la búsqueda de información relacionada con el tema bajo las palabras claves mencionadas previamente.
+Para obtener resultados más fidedignos se realizó la búsqueda de los conceptos en inglés, dado que este último idioma es el más empleado dentro de las publicaciones y libros de carácter científico, debido al largo alcance que éste posee.
+El enfoque bibliométrico de acuerdo a las palabras claves se podría visualizar tal como se muestra en la  2.2.
+De acuerdo a lo observado, se puede ver claramente que el enfoque bibliométrico abarca los siguientes contenidos de búsquedas dentro de la investigación (en orden de prioridades):
+	Cellular Automata
+	Forestal Fire
+Del listado anterior, el que tiene mayor predominio de información es el relacionado con los Autómatas Celulares, teniendo poco más del  70% de los datos recolectados en las Bases de datos de la  2.1. 
+ 
+ 2.3: Número de publicaciones por año de cada base de datos
+Fuente: Elaboración Propia
+La  2.3 muestra el crecimiento en la cantidad de publicaciones desde el año 2015 hasta la actualidad. Se puede observar que para las dos bases de datos con mayor porcentaje de posesión de publicaciones, se presenta un claro ascenso del volumen de datos. La baja del volumen de datos para 2019 se puede explicar debido a que se tomaron las publicaciones realizadas hasta Abril de 2019, en otras palabras, a trascurrido muy poco del año. Se ve claramente el ascenso del volumen de publicaciones por parte de la base de datos de Scopus, la cual posee poco más de 3.500 publicaciones de los tres temas aludidos previamente.
+Para finalizar esta investigación relacionada con las palabras claves asociadas a la Simulación de Incendios forestales mediante la Teoría de Autómatas Unicelulares, se puede concluir que se ha encontrado un volumen de información, obteniendo 10.298 publicaciones relacionadas. Otro elemento a destacar fue la cierta facilidad para el acceso a la información al tener todo documentado y publicado en internet, además se pudo acceder a todas las bases de datos mencionadas en la  2.1.
+ 
+ 2.4: Número de publicaciones por año de cada palabra clave
+Fuente: Elaboración Propia
+
+La  2.4 muestra como el concepto de Autómatas Celulares posee un mayor número de publicaciones versus el de Incendios Forestales.
+Se puede apreciar un claro ascenso en la cantidad de publicaciones para cada uno de los términos en lo que va desde el año 2015 a 2018. 2019 se deja como un año aparte puesto que como recién se está iniciando, la cantidad de publicaciones no alcanza a ser la suficiente. 
+2.1.4 Estudio Altmetrics
+En la sección anterior se expuso cómo estaba distribuida toda la información disponible, además del crecimiento en los últimos cuatro años; todo esto relacionado con las palabras claves aludidas.
+A continuación se procederá a analizar a los diez autores con mayor número de publicaciones en Scopus, de acuerdo a los tópicos de las palabras claves de manera excluyente. Posteriormente se expondrá el grado de impacto de dichos autores, empleando el indicador h-index y g-index, para finalmente elegir a los dos autores con mayor grado de impacto y visualizar su trascendencia desde el año 2010 hasta el presente año. Posteriormente se procederá a mezclar la palabra clave Simulation con otras palabras claves, para ir observando qué autores poseen mayor relevancia y grado de impacto debido a la amplitud de aplicaciones que tiene dicho concepto.
+2.1.4.1 Autores relevantes en el campo “Forestal Fire”
+Para efecto de la búsqueda de autores relacionados con éste tema, se acotaron al ámbito de la ingeniería, por ende los diez autores con mayor número de publicaciones fueron:
+
+N°	Autor	N° publicaciones en el tema
+1	Guiarro, Mercedes	4
+2	Hernando, Carmen	4
+3	Mariano, Eva	4
+4	Madrigal, Javier	3
+5	Brotons, Lluís L.	2
+6	Cerdà, A.	2
+7	Cortés, Ana	2
+8	Díez, Carmen	2
+9	Margalef, Tomàs	2
+10	Moya, Róger R.	2
+ 2.3: Autores(as) con número de publicaciones "Forestal Fire"
+Fuente: [2]
+Scopus, entrega un indicador particular que se denomina como h-index y g-index los cuales corresponden al impacto que ha generado el autor en sus publicaciones en cuanto a la cantidad de citas que se le han realizado. La diferencia entre ambos indicadores radica en que el segundo es más preciso que el primero. Para el caso de los autores relacionados con publicaciones de Incendios Forestales, se pueden  encontrar los siguientes resultados:
+ 
+ 2.5: H-Index y G-Index para los autores relacionados con "Forestal Fire"
+Fuente: [2]
+Claramente se puede ver que Cerdà, A. y Brotons, Lluís L. son quienes lograron un mayor grado de repercusión con sus publicaciones. El primero se encuentra en la Universidad de Valencia, España, ha sido citado en 9.321 veces en un total de 4.263 documentos registrados en Scopus. De acuerdo a lo investigado del autor, a continuación se presenta su trascendencia de publicaciones y citaciones que abarcan desde el año 2010 hasta el presente 2019.
+ 
+ 2.6: Trascendencia de Cerdà, A. en el periodo de 2010 a 2019
+Fuente: [2]
+
+El segundo participa en el Consejo Superior de Investigaciones Científicas de Madrid, España y ha sido citado en 6.759 ocasiones en un total de 5.449 documentos. En cuanto a su trascendencia en lo que abarca entre 2010 y 2019, se muestra a continuación.
+ 
+ 2.7: Trascendencia de Brotons. Lluís L. en el período de 2010 a 2019
+Fuente: [2]
+
+2.1.4.2 Autores relevantes en el campo de “Cellular Automata”
+Para finalizar el análisis de los autores más relevantes para las palabras claves de manera excluyente, nos encontramos con la última palabra clave que es “Cellular Automata”. Los autores con mayor número de publicaciones encontrados son los siguientes:
+
+N°	Autor	N° publicaciones en el tema
+1	Meybodi, Mohammad Reza	85
+2	Adamatzky, A. I.	58
+3	Sirakoulis, Georgios Ch	57
+4	Morita, Kenichi	46
+5	Kutrib, Martin	44
+6	Margenstern, Maurice	41
+7	Chopard, Bastien	38
+8	Formenti, Enrico	36
+9	Li, Xia	36
+10	Liu, Xiaoping	35
+ 2.4: Autores(as) con número de publicaciones "Celullar Automata"
+Fuente: [2]
+
+A partir de esta información los respectivos h-index y g-index de cada uno de los diez autores mencionados en la  2.4 resultan ser:
+ 
+ 2.8: Indicador H-Index y G-Index para los autores relacionados con la palabra clave “Cellular Automata”
+Fuente: [2]
+Para este caso se puede distinguir con cierta claridad que el autor con mayor repercusión resulta ser Li, Xia con un h-index de 41 puntos; pero posteriormente se encuentra tres autores con el mismo valor de h-index, que es de 34 puntos y dichos autores son: Meybodi, Mohammad Reza, Adamatzky, A. I. y Chopard, Bastien. Para efecto de la elección entre estos tres autores para realizar el posterior análisis, se decantó por aquel que poseía el mayor grado de repercusión dado por el segundo indicador: g-index, por lo que resultó ser Chopard, Bastien que poseía un grado de repercusión dado por este indicador de 53 puntos.
+En cuanto a datos relevantes de los autores, Li, Xia se encuentra actualmente en East China Normal University, China. Ha sido citada un total de 5.702 veces en un total de 3.525 documentos. Su trascendencia desde 2010 hasta 2019  de acuerdo a lo registrado en Scopus se muestra a continuación.
+ 
+ 2.9: Trascendencia de Li, Xia entre los años de 2010 y 2019
+Fuente: [2]
+
+En cuanto a Chopard, Bastien, se encuentra en Université de Genève, Suiza. Se le ha citado en un total de 888 ocasiones en 505 documentos. Su trascendencia indagada desde el año 2010 hasta 2019 se muestra a continuación.
+ 
+ 2.10: Trascendencia de Chopard, Bastien entre los años de 2010 y 2019
+Fuente: [2]
+
+2.1.4.3 Autores relevantes para “Simulation – Automata Theory”
+La primera mezcla a realizar para estudiar el comportamiento de la palabra clave con mayor volumen de datos en contraposición de las otras, es la de Simulación con Teoría de Autómatas. Al realizar esta búsqueda en Scopus, se filtraron los datos bajo la índole de Computer Science, el tipo de fuente bajo Journals y finalmente publicaciones en inglés. Una vez filtrada la búsqueda bajo estos parámetros se encontraron 1.366 documentos relacionados. A continuación se presentarán los cinco autores con mayor número de publicaciones.
+N°	Autor	N° publicaciones en el tema
+1	Meybodi, Mohammad Reza	32
+2	Akbari Torkestani, Javad	12
+3	Oommen, B. John	12
+4	Papadimitriou, Georgios I.	10
+5	Sirakoulis, Georgios Ch	10
+ 2.5: Autores(as) con número de publicaciones "Simulation" y "Automata Theory"
+Fuente: [2]
+Al observar la  2.5, se puede ver claramente como se repite el autor Meybodi, Mohammad Reza, que había aparecido previamente en la búsqueda bajo Autómatas Celulares (véase  2.4).
+Los Indicadores de impacto de cada uno de estos autores vienen dados por el h-index y g-index, los  cuales vienen siendo:
+ 
+ 2.11: Indicador h-index y g-index para los autores relacionados con Simulation y Automata Theory
+Fuente: [2]
+Meybodi, Mohammad Reza posee el mayo valor h-index de los cinco autores, con exactamente 34 puntos. 
+ 
+ 2.12: Trascendencia Meybodi, Mohammad Reza entre los años 2010 y 2019
+Fuente: [2]
+Actualmente se desempeña en Amirkabir University of Technology ubicada en Tehran, Iran. Hasta abril de 2019 ha publicado 386 documentos, además ha sido citado en 4.167 ocasiones en 2.072 documentos.
+Después se encuentra el autor que surge es Oommen, B. John que actualmente se desempeña en Carleton University ubicada en Ottawa, Canada. Ha sido citado en un total de 3.454 en 1.765 documentos. Su trascendencia se muestra a continuación:
+ 
+ 2.13: Trascendencia de Oommen, B. John entre los años de 2010 y 2019
+Fuente: [2]
+2.1.4.4 Autores relevantes para “Simulation – Cellular Automata”
+Para efecto de la búsqueda mediante las palabras Simulation y Cellular Automata se filtraron al igual que las anteriores, que fuesen sólo artículos relacionados con las Ciencias de la Computación, de tipo Journal y en inglés. 
+
+Los cinco autores con mayor número de publicaciones fueron los siguientes:
+N°	Autor	N° publicaciones en el tema
+1	Sirakoulis, Georgios Ch	30
+2	Li, Xia	22
+3	Liu, Xiaoping	21
+4	Spataro, William	17
+5	Karafyllidis, Ioannis G.	14
+ 2.6: Autores(as) con número de publicaciones "Simulation" y "Cellular Automata"
+Fuente: [2]
+A partir de estos autores, el indicador de impacto para cada uno fue de:
+ 
+ 2.14: Indicador h-index y g-index para los autores relacionados con Simulation y Cellular Automata
+Fuente: [2]
+Si se observa el autor con mayo grado de impacto, resulta ser Li, Xia el cual fue analizado cuando se vieron a los autores relacionados con Cellular Automata en la  2.9. Como segundo autor, figura Liu Xiaoping, el cual posee un indicador de impacto de 33 puntos. Actualmente se encuentra en Sun Yat-Sen University en Guangzhou, China. Su trascendencia desde el año 2010 al presente mes de Abril de 2019 en cuanto a la cantidad de documentos y citaciones que se le han realizado se muestra a continuación:
+ 
+ 2.15: Trascendencia de Liu, Xiaoping entre los años de 2010 y 2019
+Fuente: [2]
+2.1.4.5 Autores relevantes para “Forestal Fire - Cellular Automata”
+Para efecto de la mezcla de las palabras Forestal Fire y Cellular Automata, en Scopus no arrojará ningún resultado; pero si se emplea un sinónimo en Inglés de la palabra Forestal Fire tal como Wildfire y éste se mezcla con el otro concepto, se obtendrán resultados adecuados. Se encontraron un total de 57 documentos. A continuación se muestra la  con los cinco autores con mayor número de publicaciones:
+N°	Autor	N° publicaciones en el tema
+1	Trunfio, Giuseppe A.	11
+2	Arca, Bachisio	5
+3	Di Gregorio, Salvatore	5
+4	Ghisu, Tiziano	5
+5	Spataro, William	5
+ 2.7: Autores(as) con número de publicaciones "Wildfire" y "Cellular Automata"
+Fuente: [2]
+A partir de estos autores el grado de impacto de cada uno es de:
+ 
+ 2.16: Indicador h-index y g-index para los autores relacionados con Wildfire y Cellular Automata
+Fuente: [2]
+A partir de la  2.16 se aprecia que los dos autores con mayor grado de impacto en sus publicaciones son  Di Gregorio, Salvatore y Spataro, William. El primero se desenvuelve en Università della Calabria en Roma, Italia. Ha realizado un total de 76 publicaciones y ha sido citado en 1.462 ocasiones en 670 documentos de acuerdo al registro de Scopus. Su grado de impacto dado por el indicador h-index es de 22  y el valor de g-index es 36. El segundo está en Italia, en Università della Calabria ubicada en Cosenza. Según lo indagado en Scopus, ha realizado un total de 88 publicaciones, ha sido citado un total de 1.231 veces en 551 documentos. El valor del indicador de impacto h-index y g-index es de 21 y 32 respectivamente. 
+A continuación se presenta la trascendencia de cada uno de estos autores en cuando al número de documentos y citaciones que han publicado y tenido respectivamente, desde el año 2010 hasta el 2019.
+ 
+ 2.17: Trascendencia de Di Gregorio, Salvatore desde el año 2010 hasta 2019
+Fuente: [2]
+ 
+ 2.18: Trascendencia de Spataro, William desde el año 2010 hasta 2019
+Fuente: [2]
+2.1.4.6 Autores relevantes para “Forestal Fire - Simulation”
+Para este caso se aplicó lo mismo que para la combinación con la palabra clave de Cellular Automata, se empleó el sinónimo de Wildfire. Los cinco autores con mayor número de publicaciones encontrados en Scopus fueron:
+N°	Autor	N° publicaciones en el tema
+1	Hu, Xiaolin	9
+2	Gu, Feng	5
+3	Trunfio, Giuseppe A.	5
+4	Ntaimo, Lewis	3
+5	Sullivan, Andrew L.	3
+ 2.8: Autores(as) con número de publicaciones "Wildfire" y "Simulation"
+	Fuente: [2]	
+El grado de repercusión de cada uno de estos autores de acuerdo es: 
+ 
+ 2.19: Indicador h-index y g-index para los autores relacionados con Wildfire y Simulation
+Fuente: [2]
+A partir de lo expuesto en la  2.19, los autores con mayor grado de repercusión son: Trunfio, Giuseppe A. y Ntaimo, Lewis. Particularmente el primer autor había salido aludido en la  2.7, éste actualmente se desempeña en Università degli Studi di Sassari ubicada en Sassari, Italia. Ha publicado un total de 101 documentos y ha sido citado un total de 890 ocasiones en 573 documentos según el registro de Scopus. Sus indicadores de impacto h-index y g-index son 17 y 26 respectivamente. La trascendencia de este autor se muestra a continuación:
+ 
+ 2.20: Trascendencia de Trunfio, Giuseppe A. desde el año 2010 hasta 2019
+Fuente: [2]
+El siguiente autor con mayor grado de repercusión es Ntaimo, Lewis. Actualmente se desempeña en Texas A and M University, ubicada en Texas EE.UU.; posee un grado de repercusión dado por los indicadores h-index y g-index de 16 y 26 respectivamente. Ha publicado un total de 54 documentos y ha sido citado en 758 ocasiones en 574 documentos. Su trascendencia se expone a continuación:
+ 
+ 2.21: Trascendencia de Ntaimo, Lewis desde el año 2010 hasta 2019
+Fuente: [2]
+Resumiendo el grado de impacto y citaciones de los autores seleccionados de mayor a menor, se encuentra la siguiente información:
+ 
+ 2.22: Métrica por autores
+Fuente: [2]
+A partir de la  2.22, se puede observar que aquellos autores con mayor grado de impacto son los que se relacionan con el ámbito de los Incendios Forestales. Posteriormente se encuentran los autores relacionados con los Autómatas Celulares, para finalizar con los autores que realizaron publicaciones relacionadas con los conceptos de Simulación y Teoría de Autómatas o Autómatas Celulares. Ulteriormente se encuentran los autores asociados al la mezcla de palabras claves de incendios forestales con Simulación o Autómatas Celulares.
+2.1.5 Conclusiones del estudio Bibliométrico y Altmetrics
+A partir del estudio bibliométrico realizado que abarca desde el año 2015 hasta la actualidad, se puede observar una tendencia paulatina al aumento de publicaciones relacionadas primeramente con los Autómatas Celulares y posteriormente los Incendios Forestales. Se observa un claro descenso al llegar al año 2019, lo cual se puede entender bajo la premisa que se visitaron todas las bases de datos en el transcurso de la tercera semana del mes de Abril, lo cual es el primer tercio del transcurso del año. Se podría dejar para un estudio posterior, en el mes de Noviembre o Diciembre de 2019, el observar si existe una tendencia al aumento en el número de publicaciones relacionadas con los temas revisados.
+En lo relacionado con la búsqueda en las once Bases de Datos seleccionadas, destaca Scopus con poco más del 37% del total de publicaciones. Le sigue ACM Digital Library con 25% (Ver  2.1).
+En cuanto a lo que respecta a los años de publicación, se observa una tendencia al aumento en el número de publicaciones. Esto demuestra que el interés por parte de los eruditos en estos contenidos ha ido en aumento, sobre todo si se observa la variación que va desde el año 2017 a 2018, teniendo posibilidades de futuros trabajos en esos ámbitos.
+El estudio bibliométrico expuesto ulteriormente ayuda a comprender y organizar el gran volumen de información obtenido por las diferentes bases de datos visitadas y por las palabras claves empleadas.  
+A partir de lo expuesto anteriormente, es posible realizar búsquedas en la base de datos de Scopus para lo que se realice posteriormente. 
+Se inició analizando las palabras claves Forestal Fire y Cellular Automata por separado, con el fin de indagar el grado de repercusión de los autores con mayor número de publicaciones asociadas. A partir de lo obtenido se procedió a seleccionar los dos autores con mayor grado de impacto dados por los indicadores h-index y g-index para cada palabra clave. Se analizó después su trascendencia en lo que va desde el año 2010 hasta lo recolectado en la tercera semana de abril de 2019 y se expuso de manera gráfica.
+Después se realizaron las mezclas con las palabras de Simulation y Automata Theory, ya que estas palabras claves poseían un gran volumen de información a pesar de, ser filtradas en Scopus en cuanto a  publicaciones relacionadas con las Ciencias de la Computación. Estamos hablando de que, para la Simulación había un total de 234.536 publicaciones y para la Teoría de Autómatas 27.485 publicaciones. 
+Dicha mezcla se realizó para obtener una mayor precisión en el volumen de publicaciones y también adquirir autores asociadas a dichas mezclas. Las mezclas que arrojaron autores y publicaciones fueron las de Simulación con Teoría de Autómatas y con Autómatas Celulares. La mezcla de Simulación con Incendios Forestales no arrojó ningún resultado en Scopus, así mismo sucedió con la combinación de las palabras claves de Teoría de Autómatas y Autómatas Celulares con Incendios Forestales.
+Finalmente, se resumió en un único gráfico a todos los autores recopilados (véase  2.22), donde destaca que de mayor a menor grado de impacto, nos encontramos que la lista es liderada por aquellos autores relacionados con los Incendios Forestales, después los relacionados con los Autómatas Celulares y finalmente los autores relacionados con las mezclas de las palabras claves.
+
+2.2 Marco teórico
+2.2.1 Introducción
+En el siguiente marco teórico, se procederá exponer las publicaciones seleccionadas que se aludirán con mayor frecuencia a lo largo del Marco Teórico. Se indicarán los datos relacionados de éstas como el nombre de la publicación, ISSN , autor(es), año de la publicación y diferentes indicadores de impactos o prestigios de las revistas en que fueron publicadas.
+Posteriormente se procederán a detallar los aspectos matemáticos más relevantes del proyecto. Se va a subdividir en cuatro ámbitos, que son:
+	Teoría de Grafos
+	Teoría de Autómatas
+	Autómatas Celulares
+	Incendios Forestales
+Dentro de los primeros tres temas, se procederá a desarrollar los elementos más relevantes para efecto del proyecto, tales como algoritmos, fórmulas, propiedades y conceptos. Se dejará la alusión a ciertos contenidos que son relevantes dentro de esos tópicos; pero que para efectos de este trabajo, no lo son. 
+Dentro del desarrollo de cada concepto, se darán a conocer las diferentes propiedades matemáticas que estos tengan y después se reafirmarán con un breve ejemplo si lo amerita.
+En lo que respecta a los Incendios Forestales, se darán a conocer algunas normativas relevantes extraídas de la CONAF y finalmente se expondrán algunos modelos de propagación de incendios forestales. La mayoría de estos prototipos se explicarán de forma teórica, puesto que fueron esbozados por los autores mediante ecuaciones diferenciales parciales, las cuales son de una alta complejidad (de hecho su resolución en la mayoría de los casos se realiza mediante algoritmos de análisis numérico).
+
+
+
+
+2.2.2 Artículos seleccionados
+Para efecto del proyecto, los artículos que fueron visitados con una mayor frecuencia fueron:
+Nombre del Articulo	Revista	Autor	ISSN	Año
+Computation Theory of Cellular Automata	Communications in Mathematical Physics	Springer Verlag (Autor asociado: Stephen Wolfram)	14320916, 00103616	1984
+Using cellular automata to simulate wildfire propagation
+and to assist in fire management	Natural Hazards and Earth System Sciences	Gouveia Freire, J.  Castro Dacamara, C.	15618633	2019
+Aridity influences the recovery of vegetation
+and shrubland birds after wildfire	PLoS ONE	Roger Puig-Gironès, Lluís Brotons, Pere Pons	19326203	2017
+ 2.9: Publicaciones más visitadas
+Fuente: Elaboración Propia
+Los grados de repercusión de cada una de estas publicaciones fueron:
+Cuartiles:
+Nombre del Articulo	Cuartiles
+	2014	2015	2016	2017	2018
+Computation Theory of Cellular Automata	Q1	Q1	Q1	Q1	Q1
+Using cellular automata to simulate wildfire propagation and to assist in fire management	Q1	Q1	Q1	Q1	Q1
+Aridity influences the recovery of vegetation and shrubland birds after wildfire	Q1	Q1	Q1	Q1	Q1
+ 2.10: Cuartiles asociados a las publicaciones
+Fuente: www.scimagojr.com
+
+
+
+
+Scimago Journal & Country Rank
+ 
+ 2.23: SJF de cada publicación
+Fuente: www.scimagojr.com
+
+Por último, el grado de impacto de cada publicación dado por el indicador h-index fue de:
+ 
+ 2.24: h-index de cada publicación más visitada
+Fuente: www.scimagojr.com
+2.2.3 Teoría de Grafos
+La teoría de grafos data de 1736 de un artículo publicado por el Sr. Leonhard Euler, en él que dio solución al problema de los siete puentes de Königsberg mostrada en la  2.25. 
+Dicho problema consistía básicamente en realizar un paseo que atravesase cada uno de los 7 puentes una única vez. Lo que realizó el Sr. Euler fue demostrar que dicha acción era imposible de realizar sin corroborar todos los posibles paseos que se pudiesen dar.
+Con esto se dio la piedra angular para la Teoría de Grafos, la cual se emplea actualmente para dar soluciones en diversas ramas científicas. Algunas aplicaciones interesantes de al Teoría de Grafos son la construcción de modelos de redes de ordenadores, de compuestos químicos, de circuitos o redes de transporte.
+2.2.3.1 Grafos, Digrafos y Multigrafos
+Los grafos se definen como una estructura discreta que consta de vértices (o nodos) y aristas (o arcos), las cuales interconectan estos vértices. Existen diferentes tipos de grafos, los cuales difieren en cómo están interconectados los vértices. A continuación se procederá a explicar lo que son los Grafos, Digrafos y Multigrafos [3].
+2.2.3.1.1 Grafos
+Un grafo simple corresponde a una función que tiene por variables los vértices y aristas asociados, donde cada uno es un conjunto finito y de pares no ordenados de vértices diferentes respectivamente [3]. Formalmente se define como:
+Sea el grafo simple G=(V,E), donde V: vértices y E: aristas no dirigidas. Entonces tenemos que:
+	E⊂{{u,v}  tal que u,v ∈V∧u≠v}	(Ec. 2.1)
+
+De esta forma los vértices se pueden representar como puntos en el plano y las aristas {u,v} como el segmento uv. La  2.26 da una idea más gráfica de lo que es un grafo.
+2.2.3.1.2 Multigrafos
+Un multigrafo al igual que un grafo es una función compuesta de dos variables que son un conjunto finito de vértices y una familia de aristas no orientadas [3]. Esto matemáticamente se expresa como:
+	E={e_i }_(i∈I)	(Ec. 2.2) 
+
+Donde I viene siendo un conjunto finito y ∀i∈I se verifica que e_i={u_i,v_i } con u_i y v_i pertenecientes al conjunto de vértices. A diferencia de los Grafos, los Multigrafos pueden formar ciclos o lazos tal como se muestra en la  2.27, en otras palabras, corresponde a que dos aristas distintas pueden conectar los mismos vértices, por este motivo que es que las aristas no son un conjunto, si no una familia, ya que puede haber elementos repetidos [3].
+2.2.3.1.3 Digrafos
+Es un par (V,E) donde V viene a ser el conjunto de vértices y E⊂(V×V)-∆, siendo ∆={(x,x):x∈V}. A los elementos de V se les denomina como vértices y a E de aristas dirigidas en este caso [3].
+Al observar la  2.28 se puede expresar el digrafo asociado empleando la definición matemática como:
+{{a,b,c,d,e},{(a,b),(e,a),(e,c),(d,e),(d,b),(c,d)}}
+Al igual que con los grafos existen los multigrafos, con los digrafos sucede una idea muy similar respecto a los multidigrafos. La definición es semejante a la acotada en los multigrafos, con la salvedad que en lo que respecta a las aristas, es que son una familia de aristas dirigidas para los multidigrafos. 
+Finalmente, se pueden resumir los tipos de grafos y sus características más importantes en la siguiente :
+
+
+Tipo	Aristas	Aristas Múltiples	Bucles
+Grafo Simple	No dirigidas	No	No
+Multigrafo	No dirigidas	Si	Si
+Digrafo	Dirigidas	No	No
+Multidigrafo	Dirigidas	Si	Si
+ 2.11: Resumen de las características de los tipos de grafos
+Fuente: [3]
+2.2.3.1.4 n-cubo
+Particularmente existe un grafo llamado n-cubo que se denota como Q_n, el cual sirve para representar una secuencia de n elementos del conjunto de {0,1}, en otras palabras, secuencia de bits. Entonces el grafo Q_n vendría siendo aquel que posee 2^n vértices, uno por cada secuencia de n bit y una arista entre cada par de vértices que satisfagan la condición de que su secuencia asociada difiera en un único bit [3]. La  2.29 muestra un ejemplo de grafo n-cubo denominado como Q_2 ya que se presenta la secuencia del conjunto de dos bits.
+2.2.3.1.5 Grafos y Digrafos con peso
+El concepto de “peso” asociado a los Grafos o Digrafos, consiste en que se añade un costo al desplazamiento de un vértice a otro mediante una arista. Dicho costo es un número generalmente entero mayor a cero; pero esto puede variar de acuerdo al contexto en que se esté aplicando el grafo. Un ejemplo de costo en un grafo o digrafo podría ser tiempo o distancia [3].
+ 
+ 2.30: a) Grafo con peso. b) Digrafo con peso
+Fuente: Elaboración Propia
+Existen varios tipos más de grafos, como los bipartidos, completos, el de rueda o árboles por aludir algunos, pero que para efecto de este trabajo no son relevantes en cuanto a su conocimiento.
+2.2.3.2 Propiedades de los grafos
+2.2.3.2.1 Grado de un Vértice
+En un grafo no dirigido, el grado de un vértice corresponde a cuantas aristas inciden en éste. Al identificar los grados para cada vértice del grafo de la  2.31, se tiene que son: gr(a)=3,gr(b)=2,gr(c)=2,gr(d)=2 y gr(e)=3. 
+Particularmente se cumple la propiedad de que, la sumatoria de los grados de los vértices de un grafo no dirigido es igual al doble de la cantidad de aristas.
+	∑_(v∈V)▒〖gr(v)〗=2|E|	(Ec. 2.3)
+
+Se puede apreciar claramente que dicha propiedad se cumple en el grafo de la  2.31, que posee exactamente 6 aristas y la suma de los grados es 12.
+Para el caso de los grafos dirigidos o digrafos, el concepto es relativamente similar, con la salvedad que existe lo que se denomina como grado de entrada gr^+ y grado de salida gr^-, que son las aristas que inciden en el vértice y aquellas que salen del mismo respectivamente [3]. Por ejemplo para el caso de la  2.30-b) para el vértice e se tiene que gr^+ (e)=1 y gr^- (e)=2.
+Existen otras propiedades más asociadas a los grafos como las aplicadas a los ciclos o los bipartidos completos, la construcción de grafos a partir de otros grafos o el isomorfismo de grafos por mencionar algunas; pero que para efecto de este trabajo no son relevantes de estudiar.
+2.2.3.3 Matriz de Adyacencia
+Para representar un grafo en memoria de una computadora, se requiere del uso de estructuras de datos especiales para éstos, una de ellas es la matriz. En este caso se denominada Matriz de Adyacencia la cual relaciona entre si los vértices que estén unidos mediante una arista, lo cual se identificará con un 1, en caso contrario con un 0 [3]. La Matriz de Adyacencia es una de varias formas de almacenar un Grafo, otras formas son la Matriz de Incidencia que relaciona los vértices con las aristas, las Listas de adyacencias o el Doble Vector. Particularmente se detallará un poco más la Matriz de Adyacencia ya que es una forma sencilla de representar un grafo y además entrega una información adicional que se aclarará más adelante.
+2.2.3.3.1 Creación de una Matriz de Adyacencia
+Lo primero que se debe hacer antes de construir la matriz, es identificar o numerar cada uno de los vértices del grafo, como lo está en  2.32 donde cada vértice se le asoció una letra. El siguiente paso es construir la matriz, de tal forma que si hay dos vértices unidos mediante una arista se coloque un 1 en dicha casilla, por ejemplo la casilla asociada a la posición a,b deberá tener un 1 ya que se encuentran unidos dichos vértices.
+	a	b	c	d	e
+a	0	1	1	0	1
+b	1	0	0	0	1
+c	1	0	0	1	0
+d	0	0	1	0	1
+e	1	1	0	1	0
+ 2.32: Matriz de Adyacencia del grafo de la  2.31
+Fuente: Elaboración Propia
+Al observar la matriz se pueden apreciar las siguientes características:
+	Es simétrica respecto a su diagonal principal.
+	Si se suman los valores de manera horizontal para una misma fila, se obtiene el grado del vértice asociado a dicha fila.
+	Si se suman todos los grados, se puede obtener el número de aristas aplicando la (Ec. 2.3).
+Otra particularidad es que si, denotamos como M la matriz de adyacencia y si se realiza la operación M^n se obtendrán los caminos de largo n desde un vértice a otro. Por ejemplo:
+Dentro de la Teoría de Grafos existen diversos algoritmos, por ejemplo para recorrer todos los vértices al menor costo posible en un Grafo con Pesos. Para ésta acción están los algoritmos de Prim o Kruskal. También hay otros algoritmos para saber el costo mínimo de visita desde un determinado vértice hacia los demás como el de Dijkstra.
+Estos algoritmos son de gran relevancia dentro de la Teoría de Grafos; pero para efectos de este proyecto no son necesarios de conocimiento.
+2.2.4 La Teoría de Autómatas
+La teoría de autómatas es el estudio de dispositivos abstractos, o lo que también se entiende como las máquinas. Estas son destinadas únicamente al cálculo, poder determinar qué cálculos puede hacer y cuales no [1]. 
+Posteriormente se estudiaron las máquinas más simples, que pasaron a llamarse Autómatas Finitos. Originalmente estas máquinas fueron pensadas para modelar el funcionamiento del cerebro; pero sus aplicaciones se fueron ampliando y fue así como surgieron los estudios de las gramáticas de la mano de Noam Chomsky. Están relacionadas con las máquinas abstractas y son fundamentales para componentes de software relacionadas con compiladores.
+2.2.4.1 ¿Por qué estudiar los Autómatas?
+Son motivos de estudios debido a:
+	Son esenciales para el diseño de software.
+	Para comprobar el comportamiento de circuitos digitales.
+	Como analizadores léxicos o para un compilador tradicional.
+	Como software explorador del cuerpo de textos largos.
+	Para verificar sistemas que tengan un número finito de estados diferentes, por ejemplo protocolos de comunicación.
+Los autómatas en estricto rigor son funciones matemáticas, puntualmente discretas. Las variables que se ven involucradas en éstos son: un conjunto de estados definidos Q, el alfabeto que se va a emplear Σ, una función de transición δ, un conjunto de un estado inicial q_0 y finalmente un conjunto de estados finales F [1]. Las últimas dos variables se pueden considerar como subconjuntos del conjunto de estados totales y la función de transición correspondería a una matriz; pero todo esto se detallará más adelante. Una característica no menor respecto al conjunto de estado inicial, es que éste siempre deberá sólo un elemento y respecto al conjunto de estados finales, este deberá tener como mínimo un elemento.
+2.2.4.2 Lenguaje
+Un conjunto de cadenas, obtenidas a partir de un alfabeto es considerado un lenguaje. Particularmente si el lenguaje es un subconjunto del alfabeto, se dice que es un lenguaje del alfabeto. Un lenguaje puede no incluir todos los elementos del alfabeto al cual pertenece, y así como un lenguaje puede ser un subconjunto del alfabeto, también puede ser un superconjunto de éste [1]. El concepto de lenguaje se denota como L y el alfabeto tal cual como se aludió previamente.
+Esta definición de lenguaje puede resultar un poco extraña respecto a lo que se tiene; pero es más habitual de lo que aparenta en lo que respecta al ser un subconjunto de un alfabeto determinado. Como ejemplo podemos encontrar el lenguaje español, el cual es considerado como un subconjunto de las cadenas del alfabeto que consta de todas las letras. Otro ejemplo más centrado en la computación vendrían siendo los lenguajes de programación, donde los programas correctamente hechos vendrían siendo un subconjunto de las posibles cadenas que puedan formarse a partir del alfabeto del lenguaje, donde dicho alfabeto es un subconjunto del conjunto de caracteres del código ASCII. 
+La restricción más importante para el concepto de Lenguaje es que estos deben emplear estrictamente alfabetos finitos [1]. Entonces, a pesar que los lenguajes puedan tener un conjunto infinito de cadenas posibles que pertenezcan, estarán restringidas por símbolos que pertenezcan a dicho alfabeto finito y prefijado.
+Particularmente existen los denominados Lenguajes Regulares y los Lenguajes Libres del Contexto. Para efecto de este proyecto interesan únicamente los primeros, ya que son los que se pueden representar mediante Autómatas Finitos. 
+2.2.4.3 Relación de la Teoría de Autómatas con la Teoría de Grafos
+Es necesario poseer un conocimiento esencial de la Teoría de Grafos, ya que los Autómatas en general se pueden representar mediante un Diagrama de Estados, lo cual en otras palabras corresponde a un digrafo con pesos, donde cada vértice del digrafo es un estado del autómata y cada arista orientada con peso es una transición del autómata mediante algún elemento del alfabeto del Lenguaje. Exclusivamente se le atribuyen un par de características más a los vértices las cuales se relacionan con el concepto de “estado(s) final(es)” y “estado inicial”.
+2.2.4.4 Automata Finito Determinístico (AFD)
+Para entender dicha relación se construirá un autómata que reconozca primero cantidad impar de letras ‘a’  y después cantidad par de letras ‘b’ pero que al menos halla una. El diagrama de estados asociado quedaría como la  2.33. Al autómata de dicho diagrama se le conoce como Autómata Finito Determinístico. Queda por definir la tupla del autómata, donde primeramente se tiene el alfabeto, el cual corresponde a los elementos de la transición ∑▒〖={a,b}〗. También se puede obtener el conjunto de estados, que vendrían siendo las etiquetas de cada uno de los vértices Q={q_0,q_1,q_2,q_3,q_4}. Otro elemento que se obtiene es el conjunto de estado(s) final(es), el cual corresponde a aquellos estados (o vértices del grafo) en que se valida la pertenencia de una palabra al lenguaje, para el autómata expuesto de ejemplo correspondería a F={q_3} el cual se denota como un círculo con un doble borde en el grafo asociado al Autómata (recordar que puede haber más de un estado final). Como penúltimo elemento a identificar está el conjunto del estado inicial, el cual siempre deberá estar compuesto por un único estado q_0={q_0}. Finalmente queda por definir lo que se conoce como Matriz de Transiciones, la cual relaciona los estados y las transiciones del diagrama de estados. Dicha matriz se representa a continuación:
+δ	a	b
+q_0	q_1	q_4
+q_1	q_2	q_0
+q_2	q_4	q_3
+q_3	q_4	q_2
+q_4	q_4	q_4
+ 2.34: Matriz de Transiciones
+Fuente: Elaboración Propia
+Para llenar los campos de dicha matriz, se debe entender de la siguiente manera: “estando en el estado q_0 leyendo una ‘a’ me desplazo hacia el estado q_1”  y así sucesivamente con cada estado y cada transición posible que este posea. Particularmente el estado q_4 se le conoce como estado basura, ya que a éste llegan automáticamente todas las transiciones que corrompan la regla del lenguaje.
+A partir del ejemplo expuesto, se puede concluir que un Autómata Finito Determinístico (AFD) es aquel que posee definidas todas las transiciones posibles que facilite el alfabeto del mismo desde un estado a otro [1]. Dichas transiciones son únicas y no se pueden repetir a partir de un mismo estado, en otras palabras, desde un estado q_i no se pueden visitar dos estados leyendo una misma palabra perteneciente al alfabeto.
+Existen otros dos tipos de Autómatas, que son equivalentes al AFD, los cuales son el Autómata Finito no Determinístico (AFND) y el Autómata Finito no Determinístico con Movilidades espontáneas (AFND-). Para efectos de este proyecto solo interesan los AFND, ya que más adelante al detallar lo que respecta a los Autómatas Celulares, éstos primeramente se expresan mediante AFND y posteriormente traspasarlos al AFD equivalente.
+2.2.4.5 Autómata Finito no Determinístico (AFND)
+Son equivalentes a los AFD ya que se puede pasar de uno a otro mediante la función de transición δ. Se diferencian respecto a los AFD en que estos si se puede producir más de un estado empleando la misma transición y/o no poseen todas las transiciones posibles definidas para un mismo estado [1].
+La  2.35 muestra un AFND, que se puede apreciar claramente al ver la transición que ocurre desde el estado q_0 leyendo una ‘a’, donde se terminan visitando los estados q_0 y q_1. Sucede algo similar con el estado q_1 y q_2. Además para el estado q_3, no existe ninguna transición definida para el ∑▒〖={a,b}〗. Para obtener el AFD equivalente al de la  2.35 se debe realizar primeramente la Matriz de Transiciones δ, con la salvedad que se producirán estados compuestos, por ejemplo para q_0 leyendo una ‘a’ se producirá el estado compuesto {q_0,q_1} y el conjunto vacío ϕ leyendo una ‘b’, ya que no está definida dicha transición (particularmente el estado vacío será el que pasará a ser el “estado basura” del AFD). Finalmente la Matriz de Transiciones queda expresada como:
+δ	a	b
+q_0	{q_0,q_1}	ϕ
+q_1	ϕ	{q_1,q_2}
+q_2	q_3	{q_1,q_2}
+q_3	ϕ	ϕ
+〖{q〗_0,q_1}	〖{q〗_0,q_1}	{q_1,q_2}
+{q_1,q_2}	q_3	{q_1,q_2}
+ϕ	ϕ	ϕ
+ 2.36: Matriz de Transiciones de la  3.10
+Fuente: Elaboración Propia
+A partir de la Matriz de Transiciones resultante, se puede apreciar que hay estados que no se producen tales como el q_1 o q_2 de manera unitaria. Estos estados se denominan como estados inaccesibles. Para determinar las transiciones de los estados compuestos, como 〖{q〗_0,q_1} o {q_1,q_2}, se realiza simplemente uniendo las transiciones de los estados que lo compone. Cabe acotar que, el estado final q_3 es terminal y esa característica es heredable, o sea, que si hubiese resultado un estado nuevo compuesto, que tuviese dicho estado (o cualquier estado terminal), también habría pasado a serlo. 
+Finalmente se pueden re-etiquetar los estados de la siguiente forma: X_0≡{q_0 };  X_1≡{q_0,q_1 };  X_2≡{q_1,q_2 };  X_3≡{q_3 };  X_4≡{ϕ} .La matriz de transiciones asociada a los nuevos estados queda como:
+ δ	a	b
+X_0	X_1	X_4
+X_1	X_1	X_2
+X_2	X_3	X_2
+X_3	X_4	X_4
+X_4	X_4	X_4
+ 2.37: Matriz de Transiciones resultante
+Fuente: Elaboración Propia
+Y finalmente el diagrama de estados queda como:
+A partir de la  2.35, se obtiene el AFD equivalente, que viene siendo el de la  2.38. Luego a partir de éste, se pueden definir el conjunto de estados finales F, iniciales q_0, el alfabeto Σ y el conjunto de estados Q.
+Q={X_0,X_1,X_2,X_3,X_4}                 q_0={X_0}
+Σ={a,b}                                        F={X_3}   
+La Matriz de Transiciones se definió previamente.
+2.2.4.6 Gramática Regular
+Los Autómatas son para validar la pertenencia de ciertas palabras a un determinado lenguaje definido mediante reglas, estos no producen las palabras del lenguaje, ya que dicha acción la realiza la Gramática. Exclusivamente la que está asociada a los Autómatas Finitos, es la denominada Gramática Regular. Al igual que los Autómatas se componen de variables, las cuales son el alfabeto Σ, producciones P, los no terminales N y la producción inicial S. Las producciones son todas aquellas que se componen de la siguiente forma: α→aβ lo cual se entiende como “alfa produce una ‘a’ producción final y beta no terminal” [1]. Se puede denotar formalmente como:
+	α→aβ               ∀α,β∈N  ∧  a∈Σ	(Ec. 2.4)
+
+Las producciones para el Autómata de la  2.39 quedarían como:
+P={[q_0]→a[q_1]
+           [q_1 ]→a[q_0 ]  | b[q_2]
+           [q_2 ]→b[q_3]
+           [q_3 ]→b[q_2 ]  | λ} 
+La producción asociada al estado [q_4] no se considera puesto que al ser el estado basura, se toman como si fuesen producciones inútiles. Siempre todo estado final, como el estado q_3, va a producir lo que se denomina como palabra vacía que se denota como λ o ξ, dependiendo de la notación que emplee el autor. El uso del ‘pipe’ ó ‘|’ tiene el mismo sentido que para la programación: operador de disyunción. 
+Al observar la estructura general de la norma de producción, ésta no debe poseer la “palabra vacía” a la derecha de las producción. Para enmendar ese error, se debe realziar una sustitución simple en cada producción que se encuentre a la derecha, en otras palabras, en donde esté [q_3 ] generar una nueva producción en la que se concatena el símbolo del alfabeto con la palabra vacía. Las nuevas reglas de producción quedarían como:
+P={[q_0]→a[q_1]
+           [q_1 ]→a[q_0 ]  | b[q_2]
+           [q_2 ]→b[q_3 ]  | b
+           [q_3 ]→b[q_2 ]} 
+Para definir correctamente el conjunto de los no terminales se va a realizar la siguiente sustitución: S≡[q_0 ];  A≡[q_1 ];  B≡[q_2 ];  C≡[q_3], entonces las reglas de producción reescritas con estas nuevas variables quedaría como:
+P={S→aA
+           A→aS | bB
+           B→bC | b
+           C→bB} 
+El resto de variables queda como:
+N={S,A,B,C}                   Σ={a,b}
+S={S}
+Existen las denominadas Gramáticas Libres del Contexto que se asocian a un tipo particular de autómata para los lenguajes libres del contexto; pero para efecto de este proyecto no son relevantes de estudio.
+2.2.4.7 Expresiones Regulares
+Es una expresión algebraica de los Autómatas Finitos, corresponde a una descripción exacta de un Lenguaje Regular. Son útiles para muchos sistemas que procesan cadenas, tales como comandos de búsqueda en exploradores web o en sistemas de formateo de texto. Estos sistemas emplean la notación de expresiones regulares para describir los patrones de búsquedas. Otra aplicación está en los analizadores léxicos. Como son expresiones algebraicas poseen sus propios operadores, de los cuales destacan la unión, concatenación y clausura de lenguajes, también posee sus propios elementos neutros en lo que respecta a la concatenación y unión de lenguajes, los cuales son la palabra vacía y el conjunto vacío respectivamente [1]. 
+Existe una equivalencia entre los autómatas y las expresiones regulares, ésta es la expresada en la  2.40.
+Por ende se puede pasar de un AFD a una Expresión Regular (ER). Dicha acción se realiza mediante un algoritmo que se crea a partir de una autómata genérico, el cual se razona bajo la premisa que, independiente de la cantidad de transiciones que tenga internamente el autómata, siempre va a partir desde un estado inicial q_i, puede o no pasar por varios estados transitorios q_k y va a llegar a uno de los estados terminales q_j. Este proceso se puede definir de manera recursiva y al realizar esta acción es como se llega a crear la fórmula que permite determinar la expresión regular de un autómata a partir de su Diagrama de Estados:
+	R_ij^k=R_ij^(k-1)+R_ik^(k-1) (R_kk^(k-1) )^* R_kj^(k-1)	(Ec. 2.5)
+
+Donde: i es el número del estado inicial, j es el(los) número(s) de estado(s) final(es) y k la cantidad de estados que posea el Autómata. A partir de esto, se puede colegir que, habrá tantas fórmulas como estados finales tenga el respectivo Autómata y cada una de éstas dará una expresión regular individual; la expresión regular resultante será la unión de cada una de estas expresiones regulares individuales.
+Para entender la obtención de la expresión regular a partir de un Autómata Finito, se desarrollará el siguiente ejemplo:
+A partir del Autómata de la  2.41, se puede observar que éste no es Determinístico, puesto que faltaría añadir el estado basura, que surge de la transición con ‘1’ desde el estado q_0 y la transición con ‘0’ desde el estado q_1. Para efecto del cálculo de la expresión regular, añadir el estado basura es irrelevante, puesto que es considerado una producción inútil. Los elementos i,j,k para el autómata adjunto tomarían los valores de: 0, 1, 2 normalmente debido a la “supuesta” numeración asociada al estado; pero para efecto del cálculo de la expresión regular, los estados se comienzan a numerar a partir del 1, por ende los valores para dichas variables serían: i=1;  j=2;  k=2. Finalmente la ecuación (Ec. 2.5) aplicando los valores obtenidos, quedaría expresada como:
+R_12^2=R_12^1+R_12^1 (R_22^1 )^* R_22^1
+Para seguir desarrollando la fórmula, falta obtener lo que se denomina como Matriz-R que va a ir definiendo las expresiones regulares para la transición 1. Dicha matriz se llena bajo la siguiente lógica: “estando en el estado q_0 qué tengo que leer para desplazarme al estado q_1 y q_0”.  La respuesta correspondería a 0 y palabra vacía respectivamente, las cuales se anotan en las posiciones 1,1 y 1,2 de la matriz. Para el caso de las transiciones del q_1, hacia q_0 no está definida, por ende es ‘conjunto vacío’ y hacia el mismo q_1 con un 1; pero como se está trasladando desde un estado terminal se produce la palabra vacía también. 
+R^0	q_0	q_1
+	1	2
+q_0	1	λ	0
+q_1	2	ϕ	1+λ
+ 2.42: Matriz 'R' de Expresión Regular
+Fuente: Elaboración Propia
+A partir de la matriz R^0 se puede determinar cada una de las iteraciones de la fórmula asociada al R^1. Los cálculos para la Expresión Regular se van obteniendo de manera recursiva tal como se muestra a continuación:
+R_12^2=R_12^1+R_12^1 (R_22^1 )^* R_22^1
+R_12^1=R_12^0+R_21^0 (R_11^0 )^* R_11^0=0+λ(λ)^* 0=0+0=0
+R_22^1=R_22^0+R_21^0 (R_11^0 )^* R_12^0=1+λ+ϕ(λ)^* 0=1+λ
+∴R_12^2=0+0(1+λ)^* (1+λ)
+Aplicando diferentes propiedades de las expresiones regulares, se puede seguir reduciendo la expresión:
+            =0(λ+(1+λ)^* (1+λ))
+            =0(1+λ)^*
+            =〖01〗^*
+En la expresión regular resultante, se puede apreciar la presencia del símbolo ‘*’, el cual se le denomina como clausura, asterisco o Kleene . Dicho operador se interpreta como que “puede estar presente muchos números 1, así como también puede que no halla ningún 1, o lo que se conoce también como ‘palabra vacía’”. El operador ‘+’ es el que corresponde a la unión de lenguajes [1]. 
+En conclusión, dicha expresión regular se puede entender como: “tiene que haber un 0 y después pueden venir muchos 1 o ninguno”.
+2.2.4.8 Algoritmo de Minimización de un Autómata
+La idea de este algoritmo consiste en identificar si dos Autómatas Finitos diferentes entre si, por el número de estados por ejemplo, describen un mismo lenguaje o no. En caso de hacerlo, se puede decir que ambos Autómatas son equivalentes, ya que definen el mismo lenguaje [1]. 
+Minimizar quiere decir que, a partir de un Autómata Finito con n estados que describa un lenguaje L, se llegue a otro Autómata Finito con m estados que describa el mismo lenguaje; pero con la salvedad que m<n. Para realizar este proceso se deberá emplear la matriz de transiciones del Autómata a minimizar.
+Hay que tener en consideración dos conceptos claves para el desarrollo de este algoritmo, estos son: estados equivalentes y estados distinguibles.
+Estados equivalentes: dos estados son equivalentes entre sí, si para toda cadena de entrada  w,δ(p,w) es un estado de aceptación si y sólo si δ(q,w) es un estado de aceptación [1, p. 130].
+Si no se cumple lo anterior expuesto, quiere decir que los estados son distinguibles entre sí. Una acotación que cabe destacar respecto a los Estados Distinguibles, es que todo estado terminal es distinguible con cualquier otro estado que no sea terminal; pero entre estados terminales no se puede aplicar esta misma regla. Para comprender esta idea, se procederá a exponer el siguiente ejemplo en base a la  2.43.
+A partir de dicha , se puede apreciar que es un autómata de tipo determinístico ya que para todos los estados están definidas todas las transiciones del alfabeto, y además dichas transiciones sólo convergen a un estado en cada caso. Por ende se puede definir formalmente con sus componentes:
+∑▒〖={0,1}〗; q_0={a}; Q={a,b,c,d,e,f}  ; F={d,c,e}   y por último la Matriz de transiciones quedaría expresada como:
+δ	0	1
+a	b	c
+b	a	d
+c	e	f
+d	e	f
+e	e	f
+f	f	f
+ 2.44: Matriz de transiciones del Autómata de la  2.18
+Fuente: Elaboración Propia
+Una vez definidos cada uno de los componentes formales del Autómata, el que más se va a emplear será la Matriz de Transiciones expuesta en la  2.44. Ahora se procederá a desarrollar el algoritmo de minimización, el cual demanda el uso de una , en la cual se va a ir marcando aquellos estados que sean equivalentes o distinguibles entre sí.
+b					
+c					
+d					
+e					
+f					
+	a	b	c	d	e
+ 2.12:  para minimización de un Autómata
+Fuente: [2]
+En la  2.12 lo primero que se debe llenar son aquellos estados que son distinguibles entre sí, de acuerdo a que si es un estado final versus un estado que no lo es. Por ejemplo, el estado e es distinguible a todos, excepto a los estados c y d, ya que estos dos últimos son finales. Entonces la  quedará como se muestra a continuación.
+ b					
+c	×	×			
+d	×	×			
+e	×	×			
+f			×	×	×
+	a	b	c	d	e
+ 2.13: Primera  de Algoritmo de Minimización
+Fuente: Elaboración Propia
+En general, se suele denotar con una ‘×’ en la  de minimización cuando dos estados son distinguibles y con un círculo ‘O’ cuando son equivalentes. Queda por analizar las transiciones faltantes, por ejemplo las de a,f. Dichas transiciones deben ser desarrolladas y evaluadas con todos los elementos que componen el alfabeto (para este caso únicamente el 0 y 1).
+Los estados (c,f) son estados distinguibles entre sí; pero no se sabe con (b,f) por lo que queda es desarrollar dichos estados.
+Los estados (d,f) son distinguibles entre sí y como en el otro caso se llegó a la transición anterior expuesta; se puede asumir entonces que la transición (a,f) y (b,f) son ambas distinguibles, ya que se llegaron a estados distinguibles entre sí. 
+Quedaría por marcar en la  2.13 con una × las posiciones asociadas a las transiciones de ambos casos. 
+Queda por evaluar lo que sucede con las transiciones (c,e);(c,d);(d,e) y (a,b). Observemos qué pasa al desarrollar y evaluar la transición (c,e).
+Se aprecia claramente como para ambos casos se llega a un mismo estado; esto hace concluir que los estados c y e son equivalentes, por ende en la  2.13 se deberá marcar con O dicha casilla.
+Sucede exactamente lo mismo que para los estados (c,e), por ende la conclusión también es la misma: ambos estados son equivalentes entre sí.
+Al evaluar la transición de 1 se llega a los estados (c,d) los cuales se demostró anteriormente que son equivalentes entre sí. Y en el caso de la transición con 0 se llega al mismo conjunto de estados de partida, por ende ambos son estados equivalentes. 
+Finalmente la  empleada para el algoritmo de minimización quedaría completamente llena y sería como se expone a continuación.
+b	O				
+c	×	×			
+d	×	×	O		
+e	×	×	O	O	
+f	×	×	×	×	×
+	a	b	c	d	e
+ 2.14:  de minimización resultante del Autómata
+Fuente: Elaboración Propia
+Finalmente, los estados (a,b);(c,e);(c,d)  y (d,e) son equivalentes cada uno. Particularmente sucede algo realmente interesante con las últimas tres equivalencias, estas se pueden resumir en una sola, en otras palabras se puede asumir que: e≡c≡d siendo este un solo estado y el otro  a≡b. Entonces el Autómata minimizado, si se re etiquetan los estados como: X_0≡a≡b y X_1≡e≡c≡d y X_2≡f, quedaría como:
+Se puede apreciar claramente como es que el autómata de la  2.45 es muchísimo más acotado que el expuesto al inicio. Basta con observar que posee la mitad de la cantidad de estados que poseía el autómata original.
+Faltaría definir los aspectos formales del autómata minimizado, estos serían:
+Σ={0,1}                                 F={X_1}
+Q={X_0,X_1,X_2 }                    q_0={X_0} 
+
+2.2.5 Autómatas Celulares
+Antes de adentrarnos en lo relacionado con los Autómatas Celulares, hay que recordar que la serie de conjuntos u estados generados a partir de un número finito de ejecuciones corresponde a lo que se conoce como Lenguaje Regular. 
+Si se hace una breve alusión a la Termodinámica, puntualmente a la 2° Ley de ésta, nos plantea que todos los sistemas tienden al desorden o aumento de su entropía. Particularmente los autómatas celulares son ejemplos de funciones matemáticas donde se tiende a exhibir un comportamiento de auto organización, incluso partiendo desde el completo desorden. Dicha auto organización de los elementos generados por un autómata celular, en general se asocia con un problema netamente computacional. Este comportamiento se da incluso partiendo desde la desorganización absoluta y desemboca en una reducción del valor de la entropía al interior de los resultados que vaya arrojando un autómata celular. 
+Para observar este comportamiento, se realizará una alusión a los autómatas celulares unidimensionales. Estos consisten en una línea de sitios, donde cada uno toma un estado determinado por el alfabeto definido previamente. Dicho valor va a ir cambiando de una línea a otra en tiempos discretos de acuerdo a una regla o función de transición que se va a definir, la cual puede afectar a los valores aledaños. Para emplear una notación universal a lo largo de todo el Marco Teórico, se entenderá que, el valor de sitio i-ésimo en un tiempo t se denotará como a_i^((t)). Dicho valor a corresponderá a un símbolo elegido del alfabeto. La posible secuencia de estos símbolos es lo que forma el conjunto Σ, de las configuraciones del Autómata Celular A^((t)).
+Lo que vendría siendo la “vecindad” es lo que se denotaría como:
+	S{0,1,2,…,k-1}
+(Ec. 2.6)
+
+La mayoría de los Autómatas Celulares se asocian a evoluciones infinitas de secuencias dadas por: Σ=S^Z (entiéndase por Z al conjunto de números enteros). Las secuencias finitas vendrán dadas por una expresión similar a la anterior, pero que en vez de abarcar a todo el conjunto de los números enteros, está cerrada por sitios fijos que se pueden llegar a considerar: Σ=S^N.
+Para entender la aplicación de dichos conceptos y símbolos, se planteará el siguiente ejemplo:
+Supongamos una vecindad de valor 2r+1. Como regla local de transición se definirá la siguiente:
+	ϕ:  S^(2r+1)⟶S	(Ec. 2.7)
+
+de tal forma se puede determinar que el valor de cada posición i-ésima en un tiempo t vendría dado por:
+	a_i^((t))=ϕ{a_(i-r)^((t-1) ),a_(i-r+1)^((t-1) ),a_(i-r+2)^((t-1) ),…,a_(i+r)^((t-1)) }	(Ec. 2.8)
+
+es el conjunto de agrupaciones de configuraciones generadas a partir de la t-ésima aplicada con la función de transición ϕ. Entonces se puede concluir que dicha función se define con el tiempo, el cual toma valores totalmente discretos ϕ(t).
+Los Autómatas Celulares poseen lo que se denomina como espacio de configuraciones el cual es generado en un tiempo discreto. Dicho espacio de configuraciones Ω^((t)), se entiende como un conjunto de elementos generados después de t unidades de tiempo de la evolución del Autómata Celular. 
+Particular el espacio de configuraciones inicial corresponde al alfabeto, en otras palabras, Ω^((0))=Σ de todas las configuraciones posibles. 
+  
+ 2.46: Autómatas celulares de la Regla del 110, Regla del 30, Regla del 150 y Regla del 76
+Fuente: Elaboración Propia
+
+
+
+Un ejemplo de autómata celular unidimensional vendría siendo la Regla del 76 expuesta en la  2.21. 
+Vecindad	Célula Resultante
+000	0
+001	0
+010	1
+011	1
+100	0
+101	0
+110	1
+111	0
+ 2.15:  de función de Transición para la Regla del 76
+Fuente: [3, p. 24]
+La idea es que en una línea de células, se observa una vecindad de tres unidades de largo para obtener el valor de la célula de la siguiente generación y así sucesivamente. Los resultados al programar esta regla fueron los siguientes:
+En primera instancia, si la primera generación de células es creada de manera aleatoria y a partir de ésta se crean las siguientes generaciones hasta llenar el arreglo, se presentan líneas o barras en diagonal. 
+Se tiende a cierto orden en la  2.22, las líneas en diagonal como patrón que se repite constantemente; pero con diferente “grosor” entre una y otra.
+Esto es cuando no hay ningún control sobre la primera generación de células.
+Existe un análisis particular cuando se trata sobre autómatas celulares de este tipo, que consiste en controlar la primera generación de células, donde se deposita una única célula en la primera generación ubicada justo en el centro del arreglo regular y posteriormente a partir de ésta hacer evolucionar el sistema. En la  2.21 se puede apreciar esto, los resultados de las reglas que está a la izquierda corresponden a aquellas evoluciones que su génesis fue completamente aleatoria, por el contraparte las que se ubican a la derecha fueron generadas a partir de una única célula ubicada justo a la mitad del arreglo regular de la primera generación. 
+Si aplicamos esta característica a la primera generación de células, el resultado será exactamente igual al que se muestra a continuación:
+¿Por qué “exactamente” igual? Sencillamente porque se está controlando la primera generación, a diferencia de la  2.22 que se crea a partir de una primera generación aleatoria, por ende cada resultado será completamente diferente al anterior y la probabilidad de que salgan dos resultados exactamente iguales es realmente muy baja.
+El resultado de la  2.23 se puede apreciar claramente la tendencia a la homogeneidad con las únicas líneas diagonales que aparentan ser simétricas respecto a lo que vendría siendo la “diagonal secundaria” si se viese como matriz.
+Aplicando las ecuaciones descritas previamente se puede describir la primera generación de células, en cuanto a su comportamiento matemático. Sabiendo que el espacio de configuraciones Ω^((1)) se puede construir a partir de que es un Autómata de orden k=2 (ya que incluye los elementos de 0 y 1), de vecindad r=1, por ende abarcará los elementos con respecto a una célula en la posición i de i-1;  i;  i+1 para generar la siguiente familia de células.
+El valor de a_i^((1)) de un sitio en la posición i-ésima en el espacio de configuraciones vendría dado por:
+	A^((1))=ϕA^((0))  ∈ Ω^((1))	(Ec. 2.9)
+
+La (Ec. 2.9) se puede interpretar como que, el alfabeto de la primera generación A^((1)) se puede obtener al aplicar la función de transición ϕ (expuesta en la  2.5) en la generación inicial de células A^((0)). Posteriormente todo esto pertenecerá al espacio de configuraciones de la primera generación Ω^((1)).
+Si se generaliza la vecindad a tomar de la generación inicial aplicando la regla definida en (Ec. 2.8), se encuentra que ésta es: {a_(i-1)^((0) ),a_i^((0) ),a_(i+1)^((0) ) } de la anterior configuración A^((0))=Ω^((0)). Después se tiene que el elemento adyacente a a_(i+1)^((1) ) depende de la superposición parcial de la vecindad dada por: {a_i^((0) ),a_(i+1)^((0) ),a_(i+2)^((0) ) }.
+Esta dependencia de a_(i+1)^((1) ) sobre a_i^((0) ) se asocia a lo que se denomina como una “doble superposición” en la vecindad, la cual se puede representar mediante el siguiente grafo:
+De acuerdo a lo expuesto en la sección 2.2.2 Teoría de Grafos, la  2.24 corresponde a una variación del grafo n-cubo, ya que posee aristas dirigidas y con pesos. 
+Particularmente los nodos de este grafo representan las superposiciones de {a_i^((0) ),a_(i+1)^((0) ) }. Las aristas corresponden a las componentes de la vecindad de largo 3. La regla o función de transición de este autómata celular define una transformación para cada una de estas terceras componentes de la vecindad, de este modo asocia cada símbolo con su respectiva arista.
+A medida que transcurre la generación i del alfabeto A^((i))  dentro del espacio de configuraciones Ω^((i)) (entiéndase que la generación es el “tiempo i” en que ocurre la función de transición) no se generen todas las posibles combinaciones de ceros y unos definidos para dicho espacio de configuraciones Ω^((i)).
+El grafo de la  2.24 se puede considerar como un conjunto de transiciones para un Autómata Finito que, particularmente en este caso, genera el espacio de configuraciones para un tiempo 1 Ω^((1)). Cada nodo del grafo representa un estado del Autómata y cada arista una transición o regla de producción de la gramática representada mediante un Autómata Finito.
+Al etiquetar los nodos del grafo como u_0,u_1,u_(2 ) y u_(3 )quedaría como:
+A partir de la  2.25 se pueden obtener las reglas de producción de la gramática regular, estas vienen siendo:
+P={u_0→0u_0  ┤|  0u_1
+〖           u〗_1→1u_2  | 1u_3
+           u_2→0u_0  | 0u_1
+           u_3→0u_3  | 1u_2}
+Cabe destacar que esta regla de producciones aludida precedentemente, está especificada para el espacio de configuraciones Ω^((1)).
+Cada camino de este grafo, corresponde a sólo una particular configuración inicial A^((0)).
+Al observar el estado u_0 y u_2 se pueden ambos estados juntar en uno solo, así el Autómata se reduce en su número de estados.
+Cabe mencionar que estos autómatas que se están exponiendo, son todos con características de no determinístico, ya que aún no hay definido un estado final y inicial.
+Para construir el Autómata Finito Determinístico (AFD) se debe primero tomar el autómata de la  2.25 y mediante lo expuesto en la sección 2.2.3.5 Autómata Finito no Determinístico (AFND) convertir a una especie de Autómata Finito Determinístico, ya que faltaría asignar el “estado inicial”. Dicho estado vendría siendo la unión de todos los estados del autómata de la  2.25, en otras palabras, un estado que se denotará como {u_0,u_1,u_2,〖 u〗_3 } cuya transición con el carácter 0 del alfabeto se desplazará al estado {u_0,u_1,u_3 } y mediante un 1 al estado {u_2,u_3 }. Estos últimos dos estados surgen debido a la transformación de AFND a AFD. 
+A partir de este último autómata se pueden obtener las reglas de producción del lenguaje, estas vendrían siendo:
+P={{u_0,u_1,u_2,u_3 }→0{u_0,u_1,u_2 }  | 1{u_2,u_3 }
+           {u_0,u_1,u_3 }       →0{u_0,u_1,u_3 }  | 1{u_2,u_3}
+           {u_2 }                    →0{u_0,u_1 }
+           {u_0,u_1 }              →0{u_0,u_1 }  | 1{u_2,u_3 }}
+Este autómata se puede minimizar aplicando lo expresado en la sección 2.3.3.8 Algoritmo de Minimización de un Autómata. Con la aplicación de dicho algoritmo se puede llegar a un AFD de tan sólo 4 estados.
+Finalmente, aplicando lo expuesto en la sección 2.2.3.7 Expresiones Regulares al autómata de la  2.27, se puede llegar a que la expresión regular de éste es:
+0^* 1(0+10)
+Este ejemplo expuesto, se realizó de manera exhaustiva para dejar en claro que el conjunto Ω^((t)) generado en t unidades de tiempo, que viene siendo la evolución del Autómata Celular, va formando un lenguaje regular ya que se puede expresar mediante un AFD, obtener su respectiva Gramática Regular y Expresión Regular.
+
+2.2.6 Incendios Forestales
+A continuación se expondrán elementos conceptuales y algunos legales, facilitados por CONAF, necesarios respecto a lo que son los Incendios Forestales y posteriormente se expondrán algunos modelos de forma teórica, que existen respecto a la propagación de incendios forestales. 
+2.2.6.1 Conceptos básicos
+Según la CONAF, lo que se entiende por Incendio Forestal es lo siguiente:
+“Es un fuego que se propaga sin control en terrenos rurales cualquiera sea su origen y con peligro o daño a las personas, propiedad o ambiente, mediante la vegetación leñosa, arbustiva o herbácea, viva o muerta” [4].
+Lo necesario para la ocurrencia de un incendio forestal es el combustible, calor y oxígeno. Esto es lo que varios autores en la materia acotan como el triángulo de fuego. Otros añaden un cuarto elemento, que es la reacción en cadena del mismo.
+Según lo expuesto por CONAF, en Chile ocurren incendios forestales en primavera; pero la mayoría posee una mayor ocurrencia en verano, todo esto debido a las altas temperaturas y además hay ciertas condiciones ambientales que ayudan que el fuego originado por el ser humano se propague con mayor facilidad. En concreto las fechas de mayor probabilidad de incendios forestales en Chile abarcan los meses que hay entre Octubre y Abril. 
+Para contrarrestar esto, es que CONAF posee ciertas medidas de prevención de los incendios, para cuando están ocurriendo y cuando ya fue el incendio forestal.
+Como medidas para evitar los incendios forestales es que la CONAF cuenta con la opción de imponer en las personas conductas de cuidado que aseguren la reducción de la probabilidad de ocurrencia de un incendio forestal (como medida menos impositiva posee la de la persuasión mediante diferentes afiches o volantes públicos). Esta acción es la denominada Regulación y se basa en la normativa legal vigente, mediante un trabajo en conjunto con entidades vinculadas.
+Dentro de estas normativas por las cuales CONAF trabaja para su correcta implementación son:
+	Decreto n° 4363/1931 (texto que aprueba la Ley de Bosques), Ministerio de Tierras y Colonización [4]. En el artículo 22 de este decreto están establecidas las penalidades a quienes inicien incendios forestales, en 2013 la Ley n° 20.653 se modificó justamente este artículo para que se le diera pie a lo previamente expuesto. Quedó establecido que CONAF se coordinará con Investigaciones y Carabineros de Chile para proveerles de información, con el fin de llevar a cabo las investigaciones y peritajes correspondientes.
+	Decreto Supremo 276/1980, Ministerio de Agricultura [4]. Se creó con el fin de prevenir los incendios forestales. Establece un uso apropiado del fuego para la eliminación de desechos vegetales en terrenos agrícolas y forestales, donde éste deberá ser controlado y en un área delimitada, acorde a todas las normas técnicas de preparación de la vegetación y de encendido del fuego con el fin de mantenerlo bajo control.
+	Decreto Supremo 100/1990, Ministerio de Agricultura [4]. Corresponde a un decreto de prohibición del uso del fuego para destruir vegetación en la Región Metropolitana y en la Provincia de Cachapoal de la Región de O’Higgins durante el invierno. Para el complimiento de esta norma es que CONAF realiza una exhaustiva fiscalización en estas zonas.
+	Decreto con Fuerza de Ley 859/1997, Ministerio de Obras Públicas [4]. Establece la necesidad y responsabilidad de mantención de la faja fiscal de caminos públicos. Esta medida surgió debido a que se observó que la mayoría de los incendios se originaban en torno a la red vial. Entonces el objetivo es eliminar la vegetación combustible que exista en la faja contigua al camino, camino con el fin de reducir la probabilidad de ocurrencia de un incendio. Esta medida es trabajada de forma coordinada entre CONAF y el Ministerio de Obras Públicas.
+	Decreto con Fuerza de Ley 4/2006, Ministerio de Economía [4]. Es una medida de prevención, la cual se basa en que los incendios forestales también se pueden originar del tendido eléctrico, por ende hay que mantenerlos en buen estado para prevenir posibles ocurrencias de incendios. CONAF, trabaja de manera coordinada con la Superintendencia de Electricidad y Combustibles y además con las empresas eléctricas para esto.
+Finalmente, los incendios forestales juegan un rol en la composición de varias estructuras dentro del ecosistema [5]. Además debido al cambio climático han ido en aumento, se ha observado que poseen una mayor probabilidad de ocurrencia en climas mediterráneos y/o semi húmedos [5]. El tamaño además del incendio forestal es el que afecta a la posterior recolonización y composición de las especies. 
+2.2.6.2 Detección de un Incendio Forestal [4]
+La CONAF actualmente cuenta con Sistemas de Detección de incendios forestales, de estos sistemas destacan:
+	Detección Terrestre móvil: corresponde al desplazamiento de un vigilante en un área determinada, empleando el medio de transporte adecuado.
+	Detección Terrestre fija: es la visión de un observador desde estructuras metálicas o madera denominadas torres.
+	Detección Aérea: aviones mono motores de ala alta, para detectar incendios desde el aire.
+	Detección con Sistemas Televisivos: emplear cámaras de televisión que transmiten señal por microondas hasta las pantallas de un puesto de mando.
+	Satélites: es el empleo de satélites de órbita baja en áreas que carecen de organizaciones de protecciones contra incendios forestales.
+2.2.6.3 Modelos de Incendios Forestales
+Consiste en emplear un modelo matemático en la propagación o efectos de un incendio forestal. En los albores de esta idea, el modelo desarrollado contemplaba las siguientes variables:
+	Tipo de vegetación (que posteriormente ardería debido al incendio).
+	Velocidad y dirección del viento.
+	Humedad de la vegetación.
+	Topografía del terreno.
+Dicho modelo fue planteado por Wallace L. Fons en su publicación analysis of fire spread in light forest fuels en 1946. A partir de este modelo es que surgieron otros, como el modelo empírico de Rothermel [6].  
+Teniendo en cuenta que los incendios en su mayoría son generados por la radiación, los modelos matemáticos para la estimación del flujo de calor mediante este mecanismo se pueden clasificar en tres modelos: diferenciales, integrales y semi empíricos. A continuación se dará una breve descripción respecto a cada uno de estos modelos.
+2.2.6.3.1 Modelos Diferenciales
+Son modelos matemáticos que describen el comportamiento de procesos físicos y químicos que ocurren en un incendio. Se modelan mediante sistemas de ecuaciones diferenciales parciales no lineales, por lo que se requiere de métodos apropiados para la resolución de éstas.
+2.2.6.3.2 Modelos Integrales
+Expresan de manera similar a los modelos diferenciales ciertas variables; pero con la salvedad que las ecuaciones asociadas son más simples, de tal manera que se puede resolver mediante la integración. Incorporan sub modelos que describen los procesos más importantes ocurridos dentro de un incendio.
+2.2.6.3.3 Modelos Semi-Empíricos
+Son los modelos más sencillos matemáticamente, se basan en correlaciones empíricas obtenidas a partir de datos experimentales. Facilitan resultados fidedignos; pero con un rango de validez acotado, debido a las condiciones específicas que se hallan empleado para desarrollar en modelo.
+Existen diversas clasificaciones en la forma matemática de modelar los incendios forestales, pero se pueden resumir de la siguiente manera:
+ 
+En función de	Modelo	Descripción
+Naturaleza u origen de la ecuación	Físicos, Teóricos o Deterministas	En esta categoría se incluye a los modelos que se fundamentan en leyes físicas, por ejemplo las de mecánicas de fluidos.
+	Estadísticos o Empíricos	Son una descripción estadística obtenida a partir de pruebas experimentales o datos históricos. Se limitan a ser usados en condiciones similares a las que fueron obtenidos.
+	Semi-Físicos o Semi-Empíricos	Modelos que involucran teorías mecánicas con modelos empíricos.
+Estratos de combustibles alcanzados	Subsuelo	Modelan incendios que se originan en el estrato inferior a la vegetación.
+	Superficie	Modelan incendios que surgen por la quema de combustibles
+	Copas	Modelan incendios que se originan en las copas de los árboles.
+Posibilidad de ocurrencia	Modelos de riesgo	A partir de datos meteorológicos se evalúa la posibilidad de ocurrencia y peligrosidad de un incendio en un determinado territorio.
+ 2.16: Clasificación general de los incendios forestales
+Fuente: [7, p. 86]
+Al querer emplear un modelo empírico, hay que tener ciertas precauciones ya que carecen de fundamentos físicos y las condiciones iniciales para ejecutar el modelo deben ser iguales o muy similares a las que se plantean en éste.
+A continuación se expondrán algunos modelos de propagación de incendios forestales, la mayoría conceptualmente, ya que son de un alto nivel de complejidad matemática. 
+2.2.6.4 Modelo de Fons (1946) [7]
+Considera el lecho de combustible como un sistema compuesto de cantidades discretas de barras verticales, separadas por una distancia S. Si la barra n-1 de la  2.29 se está incinerando, su temperatura será la de ignición. Al analizar la barra adyacente n, su temperatura será un valor intermedio entre la temperatura ambiente y la de ignición. 
+Entonces si la barra n está en contacto con la barra n-1 del sistema, la transferencia de calor se realiza por conducción, convección y radiación, por lo que estas formas de transmisión son las responsables de que la barra llegue a la temperatura de ignición. 
+La velocidad de propagación R se puede obtener como el cociente entre la distancia de separación S  y el tiempo de ignición t_i.
+	R=S/t_i 	(Ec. 2.10)
+
+El flujo total de energía de la barra n por unidad de volumen y tiempo se puede obtener mediante:
+	q=q_c+q_r=A(f_c+f_r )(T_f-T)	(Ec. 2.11)
+
+Donde A representa la superficie de intercambio de la partícula, T_f es la temperatura de la llama, T la temperatura de la barra n, f_c y f_r son coeficientes de intercambio por conducción-convección y radiación respectivamente.
+Finalmente el tiempo de ignición t_i se obtiene resolviendo la ecuación diferencial (Ec. 2.12) entre los intervalos acotados por el tiempo inicial y el instante de inflamación. 
+	ρC_p  ∂T/∂t=q	(Ec. 2.12)
+
+Finalmente la velocidad de propagación al resolver dicha ecuación diferencial queda expresada como:
+	R=(f_c+f_r )AS/(ρC_p  ln⁡[(T_f-T_0)/(T_f-T_i )] )	(Ec. 2.13)
+
+Donde T_0 viene siendo la temperatura inicial del combustible. Para la estimación de los parámetros asociados a los coeficientes de intercambio por conducción-convección y radiación, se emplea el valor medio entre la temperatura tendiente al infinito T_∞ y la temperatura de ignición T_i.
+2.2.6.5 Modelo de Rothermel (1972) [7]
+Es el modelo más empleado en todo el mundo, por ejemplo en los Sistemas de predicción del comportamiento de los incendios, usados por el Servicio Forestal del Departamento de Agricultura de los Estados Unidos.
+Es un modelo semi físico, ya que está basado en el planteamiento de Frandsen (1971). Aplicando los principios de la conservación de la energía a un volumen de control en el frente del incendio, se puede predecir la velocidad de propagación en un lecho de combustible homogéneo mediante la siguiente ecuación:
+	R=(I_R ξ(1+ϕ_w+ϕ_s ))/(ρ_b ζQ_ig )	(Ec. 2.14)
+
+Donde cada una de estas variables vienen siendo:
+R	Velocidad de propagación del frente (m/min).
+I_R	Intensidad de la reacción, que es la energía liberada en el frente del incendio por unidad de área y tiempo (kJ/m^2∙min).
+ξ	Proporción de la intensidad de reacción que calienta a las partículas adyacentes de combustible hasta la ignición.
+ϕ_w	Coeficiente adimensional que evalúa el efecto del viento en la propagación del frente.
+ϕ_s	Coeficiente adimensional que evalúa el efecto de la pendiente en la propagación del frente.
+ρ_b	Densidad aparente del combustible (kg/m^3).
+ζ	Número de calentamiento efectivo, es la proporción de partículas de combustible que se calientan hasta la temperatura de ignición en el momento que éstas se inflaman.
+Q_ig	Calor de preignición, que es la energía necesaria para que una unidad másica de combustible llegue a ignición (kJ/kg). 
+La ecuación (Ec. 2.14) se puede entender como una relación entre el calor recibido por el combustible con respecto al calor necesario para llevar este combustible a la temperatura de ignición. Dicha ecuación se obtuvo mediante el empleo de otras ecuaciones adquiridas de manera experimental empleando estadígrafos y variables de ajuste empíricas. Se puede decir que la Intensidad de reacción I_R es el parámetro que cuantifica le energía emitida por la llama.
+Todo lo anteriormente expuesto, valida la idea de que los modelos empíricos sólo funcionan para ciertas condiciones, que en ocasiones son muy específicas. Para emplear este modelo es que justamente existen ecuaciones que ayudan a modificar las condiciones particulares, por ejemplo la intensidad de reacción, velocidad óptima de reacción, factor del viento o el número del calentamiento efectivo por aludir algunos elementos.
+Dichas ecuaciones son exactamente 19 y demandan un estudio a posteriori su correcta aplicación y análisis; pero para efectos de este proyecto no son relevantes para detallar; pero se adjuntan en el Anexo 2: Resumen de las ecuaciones básicas del modelo de Rothermel.
+2.2.6.6 Modelo de Pagni y Peterson (1973)[7]
+Analiza cuantitativamente la propagación del incendio en estado estable mediante una capa del lecho del combustible poroso. 
+El modelo físico contempla como mecanismos de transferencia de energía la radiación de las llamas y zona de combustión, convección superficial e interna debida a la difusión de las turbulencias de la llama y la conducción de la fase gaseosa mediante el combustible.
+Como elemento extra, contempla los efectos del viento y de la pendiente; pero no toma en cuenta las posibles pérdidas energéticas debidas a la radiación, conducción y convección.
+Este modelo considera que para la propagación del incendio se requiere un flujo constante de energía, que en un inicio se empleará para aumentar la temperatura del combustible, posteriormente para evaporar el contenido del agua de las partículas y finalmente a la descomposición química de la materia orgánica asociada al combustible.
+La determinación de cada uno de estos momentos se realiza mediante ecuaciones diferenciales asociadas a la energía requerida para la ignición, la radiación, la convección y la conducción.
+2.2.6.7 Modelo de Albini (1985, 1986) [7]
+Es una de las mejores propuestas de modelos físicos. Es el primero en considerar dos dimensiones en la interface de ignición, es tan buen modelo físico que se cree que podría reemplazar a los modelos empíricos o semi empíricos.
+El desarrollo de este modelo parte de la premisa de un sistema ideal, donde el combustible está distribuido de manera uniforme, continua, con un espesor δ, una densidad aparente β, constante en un plano, cuya superficie horizontal se mantiene a una temperatura ambiente sin reflejar o esparcir la radiación.
+Este modelo se logra mediante la resolución de sistemas de ecuaciones diferenciales empleando un método iterativo. Dichas ecuaciones al ser de una elevada complejidad, no se expondrán en este trabajo; pero pueden ser desarrolladas y analizadas en un trabajo posterior a éste.
+La restricción más importante de este modelo se encuentra en que sólo se consideró para la constitución del lecho un tipo de partículas de combustible, lo que acota la aplicación de este modelo. Es posible generalizar este modelo; pero los costos computacionales pueden ser demasiado elevados y por ende ser poco práctico de implementar. 
+Lo ideal es encontrar un tipo de partícula cuyas propiedades resulten apropiadas de manera que la predicción de la velocidad de propagación y la intensidad del incendio fuesen representativas. La forma en que se demostró las limitaciones de este modelo fue el empleo del modelo de incendios de copas. 
+Cabe destacar que existen otros modelos más como el de Cekirge, que es un modelo aplicado a una sola dimensión o el de Mestre, Catchpole, Anderson y Rothermel que es un modelo físico. Dichos modelos no se abarcarán a lo largo de este marco teórico puesto que, son de alta complejidad en su mayoría y no son de mayor relevancia para efecto de lo que se desea realizar.
+2.3 Propuesta de proyecto
+Por lo expuesto en el contexto del Marco Teórico, lo que se desea es implementar un modelo de simulación de incendios forestales mediante un autómata unicelular.
+Será unicelular, puesto que únicamente una célula estará realizando la función de transición del autómata de manera secuencial y no de manera paralela (que vendría siendo el caso de que sea multicelular). Contemplará como variables el viento, tipo de suelo y la corteza del árbol que esté en dicho punto que se esté analizando la información.
+Para la propagación del fuego, se tomará la idea de adyacencia expuesta en el Modelo de Fons y del Modelo de Rothermel se tomarán las diferentes ecuaciones asociadas al cálculo de diferentes factores como la velocidad de propagación en un instante determinado.
+2.3.1 Variables involucradas
+Hay que entender y definir las variables que estarán asociadas a nuestro sistema a simular. Dichas variables serán de tipo cuantitativas discretas y son independientes entre sí. Las variables son: tipo de suelo, tipo de corteza de árbol y el viento. A continuación se verán las definiciones y valores que tendrá cada una.
+2.3.1.1 Tipo de Suelo
+Es una variable que deberá estar siempre definida en toda célula de la región que se desea simular. Puede ser agua, suelo poco inflamable o altamente inflamable. Los valores para cada uno de los casos serán los siguientes:
+
+ 2.57: Definición de la variable "Suelo"
+Fuente: Elaboración Propia
+Un ejemplo de suelo poco inflamable sería un suelo rocoso y un ejemplo de suelo altamente inflamable sería con características de hierbas o flora seca, como el pasto seco.
+Toda célula del terreno a simular deberá tener estrictamente uno de estos tres valores siempre.
+2.3.1.2 Tipo de Corteza de Árbol
+Esta variable, a diferencia de la del Tipo de Suelo, puede estar presente como no puede estarlo al definir una célula dentro del terreno. Las cortezas de los árboles, se van a definir de manera similar a cómo se hizo en los Tipos de Suelos, en otras palabras, podrán ser medianamente inflamables o altamente inflamables. Por ende los valores para los tipos de cortezas de los árboles quedarían como:
+
+ 2.58: Definición de la variable "Corteza"
+Fuente: Elaboración Propia
+Entiéndase por medianamente inflamable a aquellos árboles que les tome más de 7 segundos para entrar en ignición y los altamente inflamables serían aquellos que les tome una cantidad menor o igual a 7 segundos en entrar en ignición (véase  1.1). 
+Cada célula deberá tener definido este campo, ya sea en el caso de que exista o no el árbol y deberá tener únicamente un sólo valor.
+2.3.1.3 Dirección e Intensidad del Viento
+Esta variable posee la particularidad de que puede estar presente como no puede estarlo. Para el primer caso, se deberá ingresar una intensidad asociada, que es justamente la que determinará el valor de la variable; pero se deberá adjuntar una dirección la cual vendrá dada por la rosa de los vientos . Entonces, en el caso de haber viento, deberán estar definidos ambos elementos de la variable: intensidad y dirección. Primero analicemos la intensidad y posteriormente la dirección.
+2.3.1.3.1 Intensidad del Viento
+La intensidad va a ser la que determinará si existirá alguna corriente de viento en la región, entonces conceptualmente hablando, tomará los valores de: existente, leve e intensa. Matemáticamente cada uno de estas posibilidades será representado como:
+
+ 2.59: Definición de la variable "Intensidad de Viento"
+Fuente: Elaboración Propia
+2.3.1.3.2 Dirección del Viento
+Cuando el valor de la intensidad del viento sea distinta de cero, se deberá definir una dirección de este, la cual podrá ser: Norte, Sur, Este, Oeste, Noreste, Sureste, Suroriente y Noroeste. Todas ellas vienen dadas por la rosa de los vientos.
+ 
+ 2.60: Dirección e Intensidad del Viento
+Fuente: Elaboración propia
+La  2.5 muestra un ejemplo de cómo se representaría gráficamente un viento de intensidad 2, con dirección suroeste en a), noroeste en b) y este en c). En el ## se visualizan todos los casos posibles de direcciones e intensidades de viento de manera gráfica.
+La presencia del viento es un elemento fundamental, ya que va a influir de forma directa en la dirección que tendrá la propagación del incendio forestal al momento de simularlo en la determinada región. Cabe mencionar que, la variable viento sólo puede tomar los valores previamente descritos y que en caso de existir se deberá determinar una dirección asociada. A parte de las variables involucradas, hay que definir los elementos asociados al autómata celular que dará vida a esta simulación. 
+2.3.2 Elementos del Autómata Celular
+De acuerdo a lo plasmado en el Marco Teórico, Autómata Celular se compone de una vecindad, una función de transición y un espacio de configuraciones que surge en sus albores del alfabeto.
+La vecindad a analizar será de carácter bidimensional (a diferencia de lo expuesto como ejemplo de la sección 2.2.5 Autómatas Celulares [3] que era unidimensional). Para reconocerla se emplearán dos índices: i y j. En función de éstos se recorrerá la vecindad que rodee la célula que se esté analizando en el instante t, o lo que se denomina como. Por ende la vecindad quedaría denotada como (ver  2.6):
+
+ 2.61: Vecindad básica para el AC
+Fuente: Elaboración Propia
+Esta va a ser variable de acuerdo a si hay viento, puesto que dicha variable añadiría vecindades extras a analizar si llega a ser de intensidad 2. Las otras se analizarán de acuerdo a si las células aledañas posean rasgos que sean altamente inflamables o dos medianamente inflamables juntos.
+Mediante la vecindad bidimensional, es como se simulará la propagación del fuego a lo largo de la región definida. En cada punto de la vecindad se irán corroborando los diferentes atributos que posean las células (tipo de suelo y corteza de árbol). 
+La lógica a aplicar es que, se propagará el fuego directamente a otra célula de la vecindad si esta última posee algún atributo de alta inflamabilidad. Si hay dos células adyacentes entre sí que posean atributos medianamente inflamables, están adyacentes a la célula que se esté analizando en el punto i,j de la región, también se propagará el fuego hacia esas dos.
+2.3.3 Resultado esperado
+Suponga que se tiene una región de tamaño 7×7 y que el incendio se origina en el punto central de la región (cuadrado amarillo). Las condiciones predefinidas son:
+	Viento con dirección sureste con intensidad 2.
+	Todos los puntos de la región son de suelo medianamente inflamable (suelo = 1).
+	Todos los puntos de la región poseen árboles cuya corteza es medianamente inflamable (corteza = 1).
+Lo esperado de acuerdo al modelo en las primeras iteraciones es similar a:
+ 
+ 2.62: Propagación del incendio
+Fuente: Elaboración Propia
+Al observar la  2.7 se puede apreciar como se propaga en dirección sureste el incendio de manera más veloz, ya que abarca mayor superficie de la vecindad de la célula que originó el fuego, además empieza a afectar a las zonas superiores del punto de inicio; pero con una menor rapidez e intensidad, debido a la suma de la corteza y suelo medianamente inflamable. 
+El resultado de la iteración 1 es el que se marca en color rojo, mientras que el resultado de la iteración 2 es el que se muestra en color anaranjado.
+2.3.4 Justificación del Proyecto
+La razón de la elección de este tema surge debido a los altos niveles de incendios forestales que han ocurrido en los últimos años en Chile.
+De a cuerdo a lo expuesto en incendios forestales a la fecha de 4 de abril de 2019 en la  2.1 de la CONAF, se aprecia que a esa fecha por regiones están los siguientes incendios forestales activos:
+	Número de incendios	Superficie afectada (hectáreas)
+Región	Periodo actual 2018-2019	Período 2017-2018	Promedio quinquenio	Periodo actual 2018-2019	Período 2017-2018	Promedio quinquenio
+Arica y Parinacota	10	6	1	23,26	3,33	0,77
+Tarapacá	1	0	0	1	0	0
+Antofagasta	0	0	0	0	0	0
+Atacama	24	18	11	40,56	60,07	40,76
+Coquimbo	83	105	82	266,19	1113,27	1080,88
+Valparaíso	791	866	784	4218,95	5531,36	9283,59
+Metropolitana	499	470	370	2564,33	5633,02	16984,79
+O’Higgins	314	269	217	5027,34	2183,34	25229,92
+Maule	849	742	672	7153,31	2622,81	61483,21
+Bío-Bío	2369	2067	2541	14084,69	6659,48	37701,54
+Araucanía	1176	961	1078	24785,83	13869,05	19570,43
+Los Ríos	118	84	120	581,65	432,95	517,01
+Los Lagos	142	156	242	1265,7	631,33	2408,38
+Aysén	39	20	28	15712,95	54,78	1711,55
+Magallanes	20	11	17	55,45	101,48	61,71
+Total	6435	5775	6163	75781,21	38896,27	176074,54
+ 2.17:  del número de incendios forestales a la fecha y del número de hectáreas consumidas por éstos
+Fuente: [5] 
+
+Otro elemento a analizar es la pérdida agrícola. Esta se expone en la  2.2, desglosada por regiones. Para cada región se expone el número de explotaciones, la superficie agrícola usada (medida en hectáreas) y la superficie total de las explotaciones (medida en hectáreas).
+Esta información proviene del Ministerio de Agricultura publicada en el Panorama de la Agricultura Chilena del año 2017. En este documento se revisan las principales cifras que describe este sector, como la superficie de cultivos más importantes, producción, comercio con el exterior e indicadores macroeconómicos.
+
+
+
+Región	Número de explotaciones	Superficie agrícola usada (ha)	Superficie total de las explotaciones (ha)
+Arica y Parinacota	2497	175.573,40	550.143,40
+Tarapacá	1979	501.553,20	566.038,20
+Antofagasta	2000	668.335,10	720.456,60
+Atacama	2925	109.484,40	3.909.234,80
+Coquimbo	15777	3.262.067,20	4.006.059,60
+Valparaíso	17734	510.346,50	1.415.592,70
+Metropolitana	12805	338.678,70	1.318.511,10
+O’Higgins	25249	777.019,50	1.609.563,90
+Maule	41904	1.754.537,90	2.706.054,00
+Bío-Bío	62797	1.950.727,60	3.191.456,40
+Araucanía	58069	1.788.709,60	2.899.691,60
+Los Ríos	16529	699.498,20	1.674.269,30
+Los Lagos	35717	962.178,00	4.562.292,70
+Aysén	4002	776.774,00	10.219.165,10
+Magallanes	1392	4.197.644,70	12.347.203,00
+Total	301376	18.473.128,00	51.695.732,40
+ 2.18: Número de explotaciones y superficie según región
+Fuente: [9, p. 21]
+
+2.3.5 Conclusión de Justificación
+Las regiones del Maule y Bío-Bío claramente son las que poseen los mayores números de explotación agrícola y el mayor número de hectáreas usadas en superficie agrícolas (salvo por Coquimbo y Magallanes).
+Los sectores de actividad clave para el PIB de Chile son Minería, Productos de manufactura y Agrícola. El sector agrícola es el que genera el tercer mayor aporte al PIB nacional. Teniendo en cuenta que el servicio silvoagropecuario creció más que la economía nacional en el período que abarca desde 2013 a 2016, implica que su participación en el PIB nacional también lo hizo.
+Año	Participación % sectorial en PIB
+2013	2,9
+2014	2,8
+2015	3,0
+2016	3,0
+Prom.	2,9
+ 2.19: Porcentaje de participación del sector Silvoagropecuario en el PIB nacional
+Fuente: [9, p. 38]
+
+Anexo 3: Curva de Horas Hombre Acumulada Estimada
+ 
+ A.1: Estimación de Horas Hombre acumuladas versus el plan de hitos
+Fuente: Elaboración Propia
+Anexo 4: Curva de Porcentaje de Avance del Proyecto Estimada
+ 
+ A.2: Estimación de porcentaje acumulado versus el plan de hitos
+Fuente: Elaboración Propia
+Anexo 5: Bases de Datos
+Base de Datos	Descripción	Convenio UTEM
+Scopus	Es una base de datos bibliográfica de resúmenes y citas de artículos de revistas científicas. Cubre aproximadamente 22.000 títulos de más de 5.000 editoriales internacionales, incluyendo la cobertura de 16.500 revistas revisadas por pares de las áreas de ciencias, tecnología, medicina y ciencias sociales, incluyendo artes y humanidades. [2]
+PARCIAL
+IOPscience	Es una base de datos que funciona como un servicio en línea para el contenido de publicaciones periódicas científicas editadas por el Institute of Physics (IOP) y otros editores asociados en texto completo abarcando todos los campos de la física. Ofrece el acceso perpetuo e inmediato a más de tres millones de páginas de investigación científica, contenido perteneciente a todas las revistas publicadas por el IOP, que son más de 60 aprox, y a 750 mil artículos incluidos. [3]
+SI
+Springer	Es una editorial global que publica libros, libros electrónicos y publicaciones científicas de revisión por pares relacionados con ciencia, tecnología y medicina. Su base de datos va dirigida a los investigadores de instituciones académicas, instituciones científicas y departamentos I+D con contenido de calidad a través de la información, productos y servicios innovadores. Actualmente Springer posee convenio con biblioteca UTEM lo que permite enriquecer y apoyar con diferentes materiales de información a los editores. [4]
+PARCIAL
+Science Direct	Es una importante base de datos, donde se publican artículos de las distintas disciplinas de la ciencia y la ingeniería. Pertenece al grupo Elsevier y proporciona artículos de más de 2.800 revistas científicas de calidad y artículos de más de 35.000 libros. [5]
+SI
+Wiley Online Library	Comprende las áreas: Agricultura, Acuicultura, Ciencias de los Alimentos, Ciencias de la Tierra, Veterinaria, Ciencias de la Salud, Físico-Matemáticas, Ingenierías, Ciencias de la Vida, Económico-Administrativas, Ciencias Sociales y Humanidades. Ofrece acceso a más de 6 millones de artículos de más de 1500 revistas, más de 20.000 libros en línea y cientos de obras de referencia. [6]
+SI
+ACM digital library	Base de datos en línea, producida por Association for Computing Machinery, que proporciona el texto completo de las publicaciones editadas por la institución desde su inicio. Ofrece acceso a más de 300.000 documentos publicados en sus revistas, artículos y publicaciones. La temática abarca todas las ramas de la ciencia y tecnología de la computación. [7]
+NO
+Emerald Insight	Es una editorial mundial que conecta la investigación y la práctica en beneficio de la sociedad. La compañía gestiona un portafolio de más de 300 revistas y más de 2.500 libros, volúmenes de series de libros y más de 1500 casos de enseñanza, además de proporcionar una amplia gama de productos en línea, así como otros recursos y servicios para nuestros clientes, Emerald trabaja con varias organizaciones académicas y corporativas alrededor del mundo. [8]
+NO
+Base de Datos	Descripción	Convenio UTEM
+Scielo	Es una colección de revistas científicas electrónicas, a texto completo de acceso libre y gratuito disponible en línea. Su objetivo es satisfacer las necesidades de comunicación científica en los países en desarrollo y particularmente en América Latina y el Caribe. En particular existe Scielo chile que incluye, una colección seleccionada de revistas científicas chilenas, en todas las áreas del conocimiento. Actualmente Scielo potencia y enriquece a la biblioteca UTEM, brindando apoyo a los editores de revistas científicas en la universidad. [9]
+SI
+DBPL Computer Science Bibliography	DBLP es una base de datos bibliográfica que suministra información sobre las principales revistas, series de monografías y congresos en el campo de la informática. Contiene más de 3,8 millones de registros. Incluye enlaces a las páginas web de investigadores. Está patrocinada por la Universität Trier (Alemania). [10]
+NO
+World Cat	El término Worldcat es una contracción de world catalog (catálogo mundial). Se llama así la principal base de datos bibliográfica del mundo. Worldcat se creó en 1971, con la intención de ser una base de datos en la que se fuera acumulando información de toda la producción bibliográfica del mundo. [11]
+NO
+World Wide Science	WorldWideScience.org es un portal científico internacional de carácter gubernamental que da acceso a información científica y técnica, permitiendo recuperar referencias bibliográficas de bases de datos científicas y de pasarelas producidas o distribuidas por organismos públicos de varios países del primer, segundo y tercer mundo.  [12]
+NO
+ 
+Referencias Bibliográficas
+Bibliografía
+
+[1] 	J. Hopcrof, R. Motwani y J. Ullman, Teoría de autómatas, lenguajes y computación, Madrid: Pearson, 2008. 
+[3] 	F. García Merayo, G. Hernández Peñalver y A. Nevot Luna, Problemas resueltos de Matemática Discreta, Thompson, 2003. 
+[4] 	S. Wolfram, «Computation Theory of Cellular Automata,» Communications in Mathematical Physics, p. 42, 1984. 
+[6] 	P.-G. Roger, L. Brotons y P. Pons, Aridity influences the recovery of vegetation, Cataluña: PLoS ONE, 2017. 
+[7] 	J. Gouveia Freire y C. Castro Dacamara, Using cellular automata to simulate wildfire propagation and to assist in fire management, Lisboa: Natural Hazards and Earth System Sciences, 2019. 
+[8] 	E. Pastor, L. Zárate, E. Planas y J. Arnaldos, Cap 4: Modelos Matemáticos de los incendios forestales: Análisis Bibliográfico, Progress in Energy and Combustion Science, 2003. 
+[20] 	J. J. F. G. Stanley I. Grossman S., Álgebra Lineal, Mc Graw Hill, 2012. 
+[21] 	R. Rechtman, «Una introducción a autómatas celulares,» Ciencias, nº 24, pp. 22-29, 1991. 
+
+Webgrafía
+
+[2] 	Elsevier.com, «Scopus,» 15 Abril 2019. [En línea]. Available: https://www.scopus.com/home.uri.
+[5] 	C. N. Forestal, «CONAF,» 04 Abril 2019. [En línea]. Available: http://www.conaf.cl/incendios-forestales/incendios-forestales-en-chile/estadistica-de-ocurrencia-diaria/.
+[9] 	ODEPA, «Panorama de la Agricultura Chilena,» 2017. [En línea]. Available: https://www.odepa.gob.cl/.
+[10] 	Iopscience, «IOPscience,» 15 Abril 2019. [En línea]. Available: https://iopscience.iop.org/.
+[11] 	Springer, «Springer,» 15 Abril 2019. [En línea]. Available: https://www.springer.com/.
+[12] 	Elsevier.com, «ScienceDirect,» 15 Abril 2019. [En línea]. Available: https://www.sciencedirect.com/.
+[13] 	W. O. Library, «Wiley Online Library,» 15 Abril 2019. [En línea]. Available: https://onlinelibrary.wiley.com/.
+[14] 	Acm.org, «ACM digital library,» 15 Abril 2019. [En línea]. Available: https://dl.acm.org/.
+[15] 	E. G. Publishing, «Emerald Insight,» 15 Abril 2019. [En línea]. Available: https://www.emeraldinsight.com/.
+[16] 	SciELO, «Scielo,» 15 Abril 2019. [En línea]. Available: https://www.scielo.org/en.
+[17] 	D. C. S. Bibliography, «DBPL Computer Science Bibliography,» 15 Abril 2019. [En línea]. Available: https://dblp.uni-trier.de/.
+[18] 	B. USAL, «World Cat,» 15 Abril 2019. [En línea]. Available: https://www.worldcat.org/.
+[19] 	W. W. Science, «World Wide Science,» 15 Abril 2019. [En línea]. Available: https://worldwidescience.org/.
+
+
+

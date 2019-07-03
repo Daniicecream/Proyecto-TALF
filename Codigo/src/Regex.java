@@ -1,4 +1,4 @@
-import java.util.regex.*;
+
 
 public class Regex {
 
@@ -38,7 +38,7 @@ public class Regex {
     }
 
     public String Articulos(String s){
-        s = s.replaceAll("\\b[en|el|l[o|a](s)?]\\b","");
+        s = s.replaceAll("^[en|el|l[o|a](s)?]$","");
         return s;
     }
 

@@ -1,23 +1,23 @@
 RESULTADOS DE PROYECTO PORTER:
 
 Analisis del documento...
-'presley' se ha repetido 315 veces.
-'como' se ha repetido 150 veces.
-'elvis' se ha repetido 95 veces.
-'cant' se ha repetido 79 veces.
-'habia' se ha repetido 59 veces.
-'musica' se ha repetido 53 veces.
-'años' se ha repetido 50 veces.
-'despues' se ha repetido 46 veces.
-'rock' se ha repetido 46 veces.
-'memphis' se ha repetido 41 veces.
-'cuando' se ha repetido 37 veces.
-'parker' se ha repetido 37 veces.
-'desde' se ha repetido 34 veces.
-'canciones' se ha repetido 30 veces.
-'album' se ha repetido 30 veces.
-'roll' se ha repetido 28 veces.
-'country' se ha repetido 27 veces.
-'estilo' se ha repetido 26 veces.
-'donde' se ha repetido 26 veces.
-'blues' se ha repetido 26 veces.
+'automata' se ha repetido 112 veces.
+'como' se ha repetido 112 veces.
+'puede' se ha repetido 78 veces.
+'datos' se ha repetido 75 veces.
+'publicaciones' se ha repetido 71 veces.
+'estados' se ha repetido 68 veces.
+'automatas' se ha repetido 64 veces.
+'cada' se ha repetido 64 veces.
+'autores' se ha repetido 63 veces.
+'fuente:' se ha repetido 60 veces.
+'incendios' se ha repetido 55 veces.
+'partir' se ha repetido 45 veces.
+'matriz' se ha repetido 41 veces.
+'forestales' se ha repetido 41 veces.
+'medi' se ha repetido 40 veces.
+'modelo' se ha repetido 39 veces.
+'mayor' se ha repetido 38 veces.
+'entre' se ha repetido 38 veces.
+'incendio' se ha repetido 37 veces.
+'ejemplo' se ha repetido 36 veces.

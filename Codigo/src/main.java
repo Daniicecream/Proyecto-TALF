@@ -17,14 +17,14 @@ public class main {
         System.out.println("Proceso ejecutado exitosamente!\nlos resultados fueron almacenados en el archivo\nDiccionario.txt el cual se encuentra en la carpeta del proyecto.");
 
             //Crear scanner
-            FileInputStream fin = new FileInputStream("text3.txt");
+            FileInputStream fin = new FileInputStream("TextoOficial.txt");
             Scanner sc = new Scanner(fin);
 
             //Crear Lista que almacenara las palabras
             ArrayList<String> palabras = new ArrayList<String>();
             ArrayList<Integer> contador = new ArrayList<Integer>();
 
-            //Leer el archivo y encontrar palabras
+            //Leer el archivo y encontrar palabrasj
             while(sc.hasNext()){ //Mientras halla texto que leer...
 
                 //Obtener la siguiente palabra
@@ -42,7 +42,7 @@ public class main {
                 //Filtrar palabra con REGEX'S
                 sigpalabra = r.Pronombres(sigpalabra); //Elimina Pronombres
                 sigpalabra = r.Articulos(sigpalabra); //Elimina Articulos
-                sigpalabra = r.Prefijos(sigpalabra); //Elimina Prefijos
+                //sigpalabra = r.Prefijos(sigpalabra); //Elimina Prefijos
                 sigpalabra = r.Sufijos(sigpalabra); //Elimina Sufijos
 
                 //System.out.println("La cadena resultante es: " + sigpalabra + "\n"); //VERIFICADOR DE RESULTADO
